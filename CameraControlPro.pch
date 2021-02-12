@@ -1,0 +1,16 @@
+//
+//  CameraControlPro.pch
+//  CameraControlPro
+//
+//  Created by Ed Connor on 1/31/21.
+//
+
+#ifndef CameraControlPro_pch
+#define CameraControlPro_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#include <Carbon/Carbon.h>
+#include "Maid3.h"
+
+#endif /* CameraControlPro_pch */

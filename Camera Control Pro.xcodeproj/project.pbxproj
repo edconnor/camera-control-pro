@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA11FA6D25D593C9007D314F /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11FA6C25D593C9007D314F /* ToggleView.swift */; };
+		AA11FA7025D5AEBC007D314F /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11FA6F25D5AEBC007D314F /* TextFieldView.swift */; };
+		AA11FA7425D5C8F5007D314F /* StringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA11FA7325D5C8F5007D314F /* StringView.swift */; };
+		AA1F168525CF735B00418581 /* NikonCameraFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F167D25CF735B00418581 /* NikonCameraFunctions.cpp */; };
+		AA1F168625CF735B00418581 /* NikonManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F167E25CF735B00418581 /* NikonManager.cpp */; };
+		AA1F168725CF735B00418581 /* NikonNativeStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F167F25CF735B00418581 /* NikonNativeStructs.swift */; };
+		AA1F168825CF735B00418581 /* function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168125CF735B00418581 /* function.cpp */; };
+		AA1F168925CF735B00418581 /* CallBack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168225CF735B00418581 /* CallBack.cpp */; };
+		AA1F168A25CF735B00418581 /* NikonNativeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168325CF735B00418581 /* NikonNativeEnums.swift */; };
+		AA1F168B25CF735B00418581 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168425CF735B00418581 /* main.cpp */; };
+		AA33B07A25D5083C006E66AC /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA33B07925D5083C006E66AC /* PopupView.swift */; };
+		AA55102425D39F0600F9ABAF /* SliderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA55102325D39F0600F9ABAF /* SliderStackView.swift */; };
+		AA738D3A25CE536300593F55 /* capInfoPageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AA738D3925CE536300593F55 /* capInfoPageData.json */; };
+		AA738D4225CE564E00593F55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D4025CE564E00593F55 /* DetailViewController.swift */; };
+		AA738D5125CE5F5800593F55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5025CE5F5800593F55 /* CoreFoundation.framework */; };
+		AA738D5325CE5F6100593F55 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5225CE5F6100593F55 /* AVFoundation.framework */; };
+		AA738D5525CE5F6C00593F55 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5425CE5F6C00593F55 /* AudioToolbox.framework */; };
+		AA738D5725CE5F7800593F55 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5625CE5F7800593F55 /* Cocoa.framework */; };
+		AA738D5925CE5F8700593F55 /* CoreMediaIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5825CE5F8700593F55 /* CoreMediaIO.framework */; };
+		AA738D5B25CE5F9100593F55 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA738D5A25CE5F9100593F55 /* CoreMedia.framework */; };
+		AA738D6025CE60CC00593F55 /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D5E25CE60CC00593F55 /* LiveView.swift */; };
+		AA738D6125CE60CC00593F55 /* LiveViewPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D5F25CE60CC00593F55 /* LiveViewPreviewLayer.swift */; };
+		AA738D6525CE626600593F55 /* CameraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D6425CE626600593F55 /* CameraObject.swift */; };
+		AAAF3E0025CF371A00F1C8C8 /* Type0029 Module.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */; };
+		AAC132BC25CF7EC500DAEB90 /* NikonManagerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAC132BB25CF7EC500DAEB90 /* NikonManagerWrapper.mm */; };
+		AAC132C425CFA00C00DAEB90 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC132C325CFA00C00DAEB90 /* MasterViewController.swift */; };
+		AAC132C825CFA08100DAEB90 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC132C725CFA08100DAEB90 /* ModelData.swift */; };
+		AAC132CB25CFA0D700DAEB90 /* CapInfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC132CA25CFA0D700DAEB90 /* CapInfoPage.swift */; };
+		AAC132F225CFAE9C00DAEB90 /* CapInfoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC132F125CFAE9C00DAEB90 /* CapInfoGridView.swift */; };
+		AAC132F725CFC4F900DAEB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAE34F0925CE50CF00007C78 /* Main.storyboard */; };
+		AAD4CB4825CF6729003FC53B /* NikonCallbackWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAD4CB4725CF6729003FC53B /* NikonCallbackWrapper.mm */; };
+		AAD4CB4C25CF6781003FC53B /* NikonCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAD4CB4A25CF6781003FC53B /* NikonCallback.cpp */; };
+		AAD5401E25CE67BB0013A32D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5401D25CE67BB0013A32D /* WindowController.swift */; };
+		AAD5402225CE6A300013A32D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5402125CE6A300013A32D /* LiveViewController.swift */; };
+		AAD5402525CE6E070013A32D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5402425CE6E070013A32D /* SplitViewController.swift */; };
+		AADDEEAE25CF698A0010C70E /* MySwiftObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */; };
+		AAE34F0125CE50CE00007C78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE34F0025CE50CE00007C78 /* AppDelegate.swift */; };
+		AAE34F0625CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAE34F0425CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld */; };
+		AAE34F0825CE50CF00007C78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE34F0725CE50CF00007C78 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AA11FA6C25D593C9007D314F /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		AA11FA6F25D5AEBC007D314F /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		AA11FA7325D5C8F5007D314F /* StringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringView.swift; sourceTree = "<group>"; };
+		AA1F167925CF730F00418581 /* Maid3d1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maid3d1.h; sourceTree = "<group>"; };
+		AA1F167A25CF730F00418581 /* Maid3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maid3.h; sourceTree = "<group>"; };
+		AA1F167B25CF730F00418581 /* CtrlSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CtrlSample.h; sourceTree = "<group>"; };
+		AA1F167C25CF730F00418581 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		AA1F167D25CF735B00418581 /* NikonCameraFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NikonCameraFunctions.cpp; sourceTree = "<group>"; };
+		AA1F167E25CF735B00418581 /* NikonManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = NikonManager.cpp; sourceTree = "<group>"; };
+		AA1F167F25CF735B00418581 /* NikonNativeStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikonNativeStructs.swift; sourceTree = "<group>"; };
+		AA1F168025CF735B00418581 /* NikonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikonManager.h; sourceTree = "<group>"; };
+		AA1F168125CF735B00418581 /* function.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = function.cpp; sourceTree = "<group>"; };
+		AA1F168225CF735B00418581 /* CallBack.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = CallBack.cpp; sourceTree = "<group>"; };
+		AA1F168325CF735B00418581 /* NikonNativeEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikonNativeEnums.swift; sourceTree = "<group>"; };
+		AA1F168425CF735B00418581 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AA33B07925D5083C006E66AC /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		AA55102325D39F0600F9ABAF /* SliderStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderStackView.swift; sourceTree = "<group>"; };
+		AA738D3825CE531E00593F55 /* CameraControlPro.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraControlPro.pch; sourceTree = "<group>"; };
+		AA738D3925CE536300593F55 /* capInfoPageData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = capInfoPageData.json; path = "Camera Control Pro/capInfoPageData.json"; sourceTree = "<group>"; };
+		AA738D4025CE564E00593F55 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AA738D5025CE5F5800593F55 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		AA738D5225CE5F6100593F55 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AA738D5425CE5F6C00593F55 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		AA738D5625CE5F7800593F55 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		AA738D5825CE5F8700593F55 /* CoreMediaIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMediaIO.framework; path = System/Library/Frameworks/CoreMediaIO.framework; sourceTree = SDKROOT; };
+		AA738D5A25CE5F9100593F55 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		AA738D5E25CE60CC00593F55 /* LiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
+		AA738D5F25CE60CC00593F55 /* LiveViewPreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewPreviewLayer.swift; sourceTree = "<group>"; };
+		AA738D6425CE626600593F55 /* CameraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraObject.swift; sourceTree = "<group>"; };
+		AAAF3DFA25CF35B100F1C8C8 /* Camera Control Pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera Control Pro-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "Type0029 Module.bundle"; path = "Camera Control Pro/NikonSDK/bin/Type0029 Module.bundle"; sourceTree = "<group>"; };
+		AAC132BA25CF7EC500DAEB90 /* NikonManagerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikonManagerWrapper.h; sourceTree = "<group>"; };
+		AAC132BB25CF7EC500DAEB90 /* NikonManagerWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NikonManagerWrapper.mm; sourceTree = "<group>"; };
+		AAC132C325CFA00C00DAEB90 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		AAC132C725CFA08100DAEB90 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		AAC132CA25CFA0D700DAEB90 /* CapInfoPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapInfoPage.swift; sourceTree = "<group>"; };
+		AAC132F125CFAE9C00DAEB90 /* CapInfoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapInfoGridView.swift; sourceTree = "<group>"; };
+		AAD4CB4225CF6471003FC53B /* NkTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NkTypes.h; sourceTree = "<group>"; };
+		AAD4CB4325CF6471003FC53B /* NkEndian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NkEndian.h; sourceTree = "<group>"; };
+		AAD4CB4425CF6471003FC53B /* Nkstdint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nkstdint.h; sourceTree = "<group>"; };
+		AAD4CB4625CF6729003FC53B /* NikonCallbackWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikonCallbackWrapper.h; sourceTree = "<group>"; };
+		AAD4CB4725CF6729003FC53B /* NikonCallbackWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = NikonCallbackWrapper.mm; sourceTree = "<group>"; };
+		AAD4CB4A25CF6781003FC53B /* NikonCallback.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = NikonCallback.cpp; sourceTree = "<group>"; };
+		AAD4CB4B25CF6781003FC53B /* NikonCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikonCallback.h; sourceTree = "<group>"; };
+		AAD5401D25CE67BB0013A32D /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		AAD5402125CE6A300013A32D /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		AAD5402425CE6E070013A32D /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftObject.swift; sourceTree = "<group>"; };
+		AAE34EFD25CE50CE00007C78 /* Camera Control Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera Control Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE34F0025CE50CE00007C78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AAE34F0525CE50CE00007C78 /* Camera_Control_Pro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera_Control_Pro.xcdatamodel; sourceTree = "<group>"; };
+		AAE34F0725CE50CF00007C78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AAE34F0A25CE50CF00007C78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AAE34F0C25CE50CF00007C78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAE34F0D25CE50CF00007C78 /* Camera_Control_Pro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Camera_Control_Pro.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAE34EFA25CE50CE00007C78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA738D5B25CE5F9100593F55 /* CoreMedia.framework in Frameworks */,
+				AA738D5925CE5F8700593F55 /* CoreMediaIO.framework in Frameworks */,
+				AA738D5725CE5F7800593F55 /* Cocoa.framework in Frameworks */,
+				AA738D5525CE5F6C00593F55 /* AudioToolbox.framework in Frameworks */,
+				AA738D5325CE5F6100593F55 /* AVFoundation.framework in Frameworks */,
+				AA738D5125CE5F5800593F55 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA04C14425D2568000E9C5E5 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				AA738D4025CE564E00593F55 /* DetailViewController.swift */,
+				AA33B07925D5083C006E66AC /* PopupView.swift */,
+				AA55102325D39F0600F9ABAF /* SliderStackView.swift */,
+				AA11FA6F25D5AEBC007D314F /* TextFieldView.swift */,
+				AA11FA6C25D593C9007D314F /* ToggleView.swift */,
+				AAC132CA25CFA0D700DAEB90 /* CapInfoPage.swift */,
+				AA11FA7325D5C8F5007D314F /* StringView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		AA738D4F25CE5F5800593F55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA738D5A25CE5F9100593F55 /* CoreMedia.framework */,
+				AA738D5825CE5F8700593F55 /* CoreMediaIO.framework */,
+				AA738D5625CE5F7800593F55 /* Cocoa.framework */,
+				AA738D5425CE5F6C00593F55 /* AudioToolbox.framework */,
+				AA738D5225CE5F6100593F55 /* AVFoundation.framework */,
+				AA738D5025CE5F5800593F55 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA738D5D25CE609400593F55 /* LiveView */ = {
+			isa = PBXGroup;
+			children = (
+				AAD5402125CE6A300013A32D /* LiveViewController.swift */,
+				AA738D5E25CE60CC00593F55 /* LiveView.swift */,
+				AA738D5F25CE60CC00593F55 /* LiveViewPreviewLayer.swift */,
+			);
+			path = LiveView;
+			sourceTree = "<group>";
+		};
+		AAAF3DF925CF358E00F1C8C8 /* NikonSDK */ = {
+			isa = PBXGroup;
+			children = (
+				AAC132BA25CF7EC500DAEB90 /* NikonManagerWrapper.h */,
+				AAC132BB25CF7EC500DAEB90 /* NikonManagerWrapper.mm */,
+				AA1F168225CF735B00418581 /* CallBack.cpp */,
+				AA1F168125CF735B00418581 /* function.cpp */,
+				AA1F168425CF735B00418581 /* main.cpp */,
+				AA1F167D25CF735B00418581 /* NikonCameraFunctions.cpp */,
+				AA1F167E25CF735B00418581 /* NikonManager.cpp */,
+				AA1F168025CF735B00418581 /* NikonManager.h */,
+				AA1F168325CF735B00418581 /* NikonNativeEnums.swift */,
+				AA1F167F25CF735B00418581 /* NikonNativeStructs.swift */,
+				AA1F167B25CF730F00418581 /* CtrlSample.h */,
+				AA1F167A25CF730F00418581 /* Maid3.h */,
+				AA1F167925CF730F00418581 /* Maid3d1.h */,
+				AA1F167C25CF730F00418581 /* main.h */,
+				AAD4CB4A25CF6781003FC53B /* NikonCallback.cpp */,
+				AAD4CB4B25CF6781003FC53B /* NikonCallback.h */,
+				AAD4CB4625CF6729003FC53B /* NikonCallbackWrapper.h */,
+				AAD4CB4725CF6729003FC53B /* NikonCallbackWrapper.mm */,
+				AAD4CB4325CF6471003FC53B /* NkEndian.h */,
+				AAD4CB4425CF6471003FC53B /* Nkstdint.h */,
+				AAD4CB4225CF6471003FC53B /* NkTypes.h */,
+				AAAF3DFA25CF35B100F1C8C8 /* Camera Control Pro-Bridging-Header.h */,
+			);
+			path = NikonSDK;
+			sourceTree = "<group>";
+		};
+		AAC132C125CF9FD600DAEB90 /* MasterView */ = {
+			isa = PBXGroup;
+			children = (
+				AAC132C325CFA00C00DAEB90 /* MasterViewController.swift */,
+				AAC132F125CFAE9C00DAEB90 /* CapInfoGridView.swift */,
+				AAC132C725CFA08100DAEB90 /* ModelData.swift */,
+			);
+			path = MasterView;
+			sourceTree = "<group>";
+		};
+		AAE34EF425CE50CE00007C78 = {
+			isa = PBXGroup;
+			children = (
+				AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */,
+				AA738D3925CE536300593F55 /* capInfoPageData.json */,
+				AA738D3825CE531E00593F55 /* CameraControlPro.pch */,
+				AAE34EFF25CE50CE00007C78 /* Camera Control Pro */,
+				AAE34EFE25CE50CE00007C78 /* Products */,
+				AA738D4F25CE5F5800593F55 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AAE34EFE25CE50CE00007C78 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAE34EFD25CE50CE00007C78 /* Camera Control Pro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAE34EFF25CE50CE00007C78 /* Camera Control Pro */ = {
+			isa = PBXGroup;
+			children = (
+				AAE34F0025CE50CE00007C78 /* AppDelegate.swift */,
+				AAD5401D25CE67BB0013A32D /* WindowController.swift */,
+				AAD5402425CE6E070013A32D /* SplitViewController.swift */,
+				AA738D6425CE626600593F55 /* CameraObject.swift */,
+				AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */,
+				AAE34F0925CE50CF00007C78 /* Main.storyboard */,
+				AAC132C125CF9FD600DAEB90 /* MasterView */,
+				AA04C14425D2568000E9C5E5 /* DetailView */,
+				AA738D5D25CE609400593F55 /* LiveView */,
+				AAAF3DF925CF358E00F1C8C8 /* NikonSDK */,
+				AAE34F0725CE50CF00007C78 /* Assets.xcassets */,
+				AAE34F0C25CE50CF00007C78 /* Info.plist */,
+				AAE34F0D25CE50CF00007C78 /* Camera_Control_Pro.entitlements */,
+				AAE34F0425CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld */,
+			);
+			path = "Camera Control Pro";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAE34EFC25CE50CE00007C78 /* Camera Control Pro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAE34F1025CE50CF00007C78 /* Build configuration list for PBXNativeTarget "Camera Control Pro" */;
+			buildPhases = (
+				AAE34EF925CE50CE00007C78 /* Sources */,
+				AAE34EFA25CE50CE00007C78 /* Frameworks */,
+				AAE34EFB25CE50CE00007C78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Camera Control Pro";
+			productName = "Camera Control Pro";
+			productReference = AAE34EFD25CE50CE00007C78 /* Camera Control Pro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAE34EF525CE50CE00007C78 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					AAE34EFC25CE50CE00007C78 = {
+						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
+					};
+				};
+			};
+			buildConfigurationList = AAE34EF825CE50CE00007C78 /* Build configuration list for PBXProject "Camera Control Pro" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AAE34EF425CE50CE00007C78;
+			productRefGroup = AAE34EFE25CE50CE00007C78 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAE34EFC25CE50CE00007C78 /* Camera Control Pro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAE34EFB25CE50CE00007C78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAAF3E0025CF371A00F1C8C8 /* Type0029 Module.bundle in Resources */,
+				AA738D3A25CE536300593F55 /* capInfoPageData.json in Resources */,
+				AAE34F0825CE50CF00007C78 /* Assets.xcassets in Resources */,
+				AAC132F725CFC4F900DAEB90 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAE34EF925CE50CE00007C78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA738D6025CE60CC00593F55 /* LiveView.swift in Sources */,
+				AA1F168925CF735B00418581 /* CallBack.cpp in Sources */,
+				AADDEEAE25CF698A0010C70E /* MySwiftObject.swift in Sources */,
+				AA738D6125CE60CC00593F55 /* LiveViewPreviewLayer.swift in Sources */,
+				AA1F168725CF735B00418581 /* NikonNativeStructs.swift in Sources */,
+				AAC132C425CFA00C00DAEB90 /* MasterViewController.swift in Sources */,
+				AA1F168825CF735B00418581 /* function.cpp in Sources */,
+				AAC132CB25CFA0D700DAEB90 /* CapInfoPage.swift in Sources */,
+				AAC132C825CFA08100DAEB90 /* ModelData.swift in Sources */,
+				AAC132F225CFAE9C00DAEB90 /* CapInfoGridView.swift in Sources */,
+				AA1F168525CF735B00418581 /* NikonCameraFunctions.cpp in Sources */,
+				AA55102425D39F0600F9ABAF /* SliderStackView.swift in Sources */,
+				AAD5402225CE6A300013A32D /* LiveViewController.swift in Sources */,
+				AAD5401E25CE67BB0013A32D /* WindowController.swift in Sources */,
+				AAD5402525CE6E070013A32D /* SplitViewController.swift in Sources */,
+				AA1F168B25CF735B00418581 /* main.cpp in Sources */,
+				AA11FA6D25D593C9007D314F /* ToggleView.swift in Sources */,
+				AAE34F0125CE50CE00007C78 /* AppDelegate.swift in Sources */,
+				AA738D6525CE626600593F55 /* CameraObject.swift in Sources */,
+				AAD4CB4825CF6729003FC53B /* NikonCallbackWrapper.mm in Sources */,
+				AA11FA7425D5C8F5007D314F /* StringView.swift in Sources */,
+				AA1F168625CF735B00418581 /* NikonManager.cpp in Sources */,
+				AAD4CB4C25CF6781003FC53B /* NikonCallback.cpp in Sources */,
+				AA11FA7025D5AEBC007D314F /* TextFieldView.swift in Sources */,
+				AAE34F0625CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld in Sources */,
+				AA738D4225CE564E00593F55 /* DetailViewController.swift in Sources */,
+				AA1F168A25CF735B00418581 /* NikonNativeEnums.swift in Sources */,
+				AAC132BC25CF7EC500DAEB90 /* NikonManagerWrapper.mm in Sources */,
+				AA33B07A25D5083C006E66AC /* PopupView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAE34F0925CE50CF00007C78 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAE34F0A25CE50CF00007C78 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAE34F0E25CE50CF00007C78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAE34F0F25CE50CF00007C78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		AAE34F1125CE50CF00007C78 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Camera Control Pro/Camera_Control_Pro.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KH3CTDS6P4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CameraControlPro.pch;
+				INFOPLIST_FILE = "Camera Control Pro/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esi.Camera-Control-Pro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera Control Pro/NikonSDK/Camera Control Pro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AAE34F1225CE50CF00007C78 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Camera Control Pro/Camera_Control_Pro.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = KH3CTDS6P4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CameraControlPro.pch;
+				INFOPLIST_FILE = "Camera Control Pro/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esi.Camera-Control-Pro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Camera Control Pro/NikonSDK/Camera Control Pro-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAE34EF825CE50CE00007C78 /* Build configuration list for PBXProject "Camera Control Pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE34F0E25CE50CF00007C78 /* Debug */,
+				AAE34F0F25CE50CF00007C78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAE34F1025CE50CF00007C78 /* Build configuration list for PBXNativeTarget "Camera Control Pro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAE34F1125CE50CF00007C78 /* Debug */,
+				AAE34F1225CE50CF00007C78 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AAE34F0425CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AAE34F0525CE50CE00007C78 /* Camera_Control_Pro.xcdatamodel */,
+			);
+			currentVersion = AAE34F0525CE50CE00007C78 /* Camera_Control_Pro.xcdatamodel */;
+			path = Camera_Control_Pro.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AAE34EF525CE50CE00007C78 /* Project object */;
+}

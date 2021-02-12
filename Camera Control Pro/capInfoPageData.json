@@ -1,0 +1,85 @@
+[
+    {
+        "name": "Module",
+        "image": "m.square",
+        "capabilities":[
+            1,
+            3,
+            5,
+            6,
+           
+            9,
+            54,
+            58
+        ]
+    },
+    {
+        "name": "Exposure 1",
+        "image": "camera",
+        "capabilities":[
+            33198,
+            33059,
+            33041,
+            33042,
+            33043,
+            33045,
+            33826,
+            33046,
+            33048,
+            9,
+            11,
+                     33030,
+                     33047,
+        ]
+    },
+    {
+        "name": "Exposure 2",
+        "image": "camera.fill",
+        "capabilities":[
+                     33030,
+                     33047,
+                     33024,
+                     33089,
+                     33111,
+                     33092,
+        ]
+    },
+    {
+        "name": "Storage",
+        "image": "externaldrive",
+        "capabilities":[
+            33085,
+            33086,
+        ]
+    },
+    {
+        "name": "Mechanical",
+        "image": "wrench",
+        "capabilities":[
+            33097,
+        ]
+    },
+    {
+        "name": "Image",
+        "image": "photo",
+        "capabilities":[
+            33111,
+        ]
+    },
+    {
+        "name": "Movie 1",
+        "image": "video",
+        "capabilities":[
+            33170,
+            33171,
+        ]
+    },
+    {
+        "name": "Movie 2",
+        "image": "video.fill",
+        "capabilities":[
+            33190,
+            33193,
+        ]
+    }
+]
