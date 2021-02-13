@@ -14,15 +14,11 @@ NikonManager *NikonManager::instance = 0;
 
 NikonManager::NikonManager()
 {
-    m_asyncPaused = true;
-    
     char    ModulePath[PATH_MAX] = {0};
-    //LPRefObj    pRefMod = NULL;  // TODO ejc
-    
-    ULONG    ulModID = 0, ulSrcID = 0;
-
     BOOL    bRet;
 
+    m_asyncPaused = true;
+    
     // Search for a Module-file like "Type0029.md3".
     bRet = Search_Module( ModulePath );
     if ( bRet == FALSE ) {
@@ -144,21 +140,16 @@ void NikonManager::async()
 void NikonManager::getCap(ULONG ulParam, ULONG ulDataType, NKPARAM pData)
 {
     bool bRet = false;
+    AsyncManager(this);
     
-    m_asyncPaused = true;
     bRet = Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_FocalLength, kNkMAIDDataType_FloatPtr,(NKPARAM) pData, NULL, NULL );
-    m_asyncPaused = false;
 }
 
 int NikonManager::getCapUnsigned(ULONG ulCapID, ULONG* ulValue)
 {
-    int bRet = 0;
+    AsyncManager amgr(this);
   
-    m_asyncPaused = true;
-    bRet = GetUnsignedCapability((LPRefObj)pRefSrc, ulCapID, ulValue);
-    m_asyncPaused = false;
-    
-    return bRet;
+    return GetUnsignedCapability((LPRefObj)pRefSrc, ulCapID, ulValue);
 }
 
 BYTE NikonManager::getCapBool(ULONG ulCapID)
@@ -166,193 +157,133 @@ BYTE NikonManager::getCapBool(ULONG ulCapID)
     bool bRet = false;
     BYTE ulValue = 0;
     
-    m_asyncPaused = true;
+    AsyncManager amgr(this);
     bRet = GetBoolCapability(pRefSrc, ulCapID, &ulValue);
-    m_asyncPaused = false;
-    
+   
     return ulValue;
 }
 
 bool NikonManager::getCapString (ULONG ulCapID,  char *psString)
 {
-    bool bRet = false;
+    AsyncManager amgr(this);
     
-    m_asyncPaused = true;
-    bRet = GetStringCapability( pRefSrc,  ulCapID, psString);
-    m_asyncPaused = false;
-    
-    return bRet;
+    return GetStringCapability( pRefSrc,  ulCapID, psString);
 }
 
 bool  NikonManager::setCapBool (ULONG ulCapID, bool bFlag)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = SetBoolCapability(pRefSrc, ulCapID, bFlag);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+
+    return SetBoolCapability(pRefSrc, ulCapID, bFlag);
 }
 
 bool  NikonManager::setCapUnsigned  (ULONG ulCapID, ULONG ulValue)
 {
-    bool bRet = false;
-
-    m_asyncPaused = true;
-    bRet = SetUnsignedCapability(pRefSrc, ulCapID, ulValue);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+   
+    return SetUnsignedCapability(pRefSrc, ulCapID, ulValue);
 }
 
 bool  NikonManager::setCapDouble    (ULONG ulCapID, double fValue)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = SetFloatCapability(pRefSrc, ulCapID, fValue);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+   
+    return SetFloatCapability(pRefSrc, ulCapID, fValue);
 }
 
 bool  NikonManager::setCapRange    (ULONG ulCapID, double fValue)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = SetRangeCapability (pRefSrc, ulCapID, fValue);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+
+    return SetRangeCapability (pRefSrc, ulCapID, fValue);
 }
 
 bool NikonManager::setCapEnum (ULONG ulCapID, int index)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = SetEnumCapability(pRefSrc, ulCapID, index);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+
+    return SetEnumCapability(pRefSrc, ulCapID, index);
 }
 
 double NikonManager::getCapDouble(ULONG ulCapID)
 {
+    AsyncManager amgr(this);
     bool bRet = false;
     double ulValue = 0;
     
-    m_asyncPaused = true;
     bRet = GetFloatCapability((LPRefObj)pRefSrc, ulCapID, (ULONG*)&ulValue);
-    m_asyncPaused = false;
-    
+
     return ulValue;
 }
 
 int NikonManager::getCapRange(ULONG ulCapID,  LPNkMAIDRange pRange)
 {
-    int bRet = false;
-   
-    m_asyncPaused = true;
-    bRet = GetRangeCapability(pRefSrc, ulCapID, pRange);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+
+    return GetRangeCapability(pRefSrc, ulCapID, pRange);
 }
 
 int NikonManager::getCapCount()
 {
-    int nCount = 0;
-    
-    m_asyncPaused = true;
-    nCount =  GetCapCount(pRefSrc->pObject);
-    m_asyncPaused = false;
-    
-    return nCount;
+    AsyncManager amgr(this);
+
+    return GetCapCount(pRefSrc->pObject);
 }
 
 bool  NikonManager::getCapInfo(LPNkMAIDCapInfo ppCapArray,  int count)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = GetCapInfoObj( pRefSrc->pObject, &ppCapArray, count, NULL, NULL );
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+
+    return GetCapInfoObj( pRefSrc->pObject, &ppCapArray, count, NULL, NULL );
 }
 
 bool NikonManager::canSet ( int capId)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet =  CheckCapabilityOperation(pRefSrc, capId, kNkMAIDCapOperation_Set);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+    return CheckCapabilityOperation(pRefSrc, capId, kNkMAIDCapOperation_Set);
 }
 
-// BOOL SetEnumCapabilityObj( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pStEnum );
 bool NikonManager::getCapArray (LPNkMAIDEnum pStEnum, int capId)
 {
-    bool rc = false;
-    
-    m_asyncPaused = true;
-    rc =  GetEnumArrayCapability(pRefSrc, capId, pStEnum);
-    m_asyncPaused = false;
-
-    return rc;
+    AsyncManager amgr(this);
+   
+    return GetEnumArrayCapability(pRefSrc, capId, pStEnum);
 }
 
 char * NikonManager::getEnumString(int capId, int itemId)
 {
-    char * str = NULL;
-    
-    m_asyncPaused = true;
-    str = GetEnumString(  capId,  itemId, psEnumItemString );
-    m_asyncPaused = false;
-    
-    return str;
+    AsyncManager amgr(this);
+   
+    return GetEnumString(  capId,  itemId, psEnumItemString );
 }
 
 int NikonManager::getCapEnumIndex (ULONG ulCapID)
 {
+    AsyncManager amgr(this);
     bool bRet = false;
-    
     int ulValue = -1;
-    m_asyncPaused = true;
+
     bRet = GetEnumCapabilityIndex (pRefSrc,ulCapID, &ulValue);
-    m_asyncPaused = false;
     
     return ulValue;
 }
 
-
-
 bool NikonManager::enumCapabilities( ULONG* pulCapCount, LPNkMAIDCapInfo* ppCapArray, LPNKFUNC pfnComplete, NKREF refComplete)
 {
-    bool bRet = false;
-    
-    m_asyncPaused = true;
-    bRet = EnumCapabilities( pRefMod->pObject ,  pulCapCount,  ppCapArray, NULL, NULL);
-    m_asyncPaused = false;
-    
-    return bRet;
+    AsyncManager amgr(this);
+ 
+    return EnumCapabilities( pRefMod->pObject ,  pulCapCount,  ppCapArray, NULL, NULL);
 }
 
 bool NikonManager::resetSourceCommandLoop (int ulSrcID)
 {
+    AsyncManager amgr(this);
     bool bRet = false;
     
-    m_asyncPaused = true;
     // Close Source_Object
-        bRet = RemoveChild( pRefMod, ulSrcID );
-    
-    bRet =  sourceCommandLoop(  pRefMod, ulSrcID); // TODO ejc
-    m_asyncPaused = false;
+    bRet = RemoveChild( pRefMod, ulSrcID );
+    if (bRet)
+      sourceCommandLoop(  pRefMod, ulSrcID); // TODO ejc
     
     return bRet;
 }
@@ -371,4 +302,16 @@ bool NikonManager::sourceCommandLoop( LPRefObj pRefMod, ULONG ulSrcID )
         pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
     }
     return true;
+}
+
+
+AsyncManager::AsyncManager(NikonManager *mgr)
+{
+    m_mgr = mgr;
+    m_mgr->m_asyncPaused = true;
+}
+
+AsyncManager::~AsyncManager()
+{
+    m_mgr->m_asyncPaused = false;
 }

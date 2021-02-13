@@ -12,8 +12,6 @@
 #include "Maid3d1.h"
 #include "CtrlSample.h"
 
-
-
 class NikonManager
 {
     static NikonManager *instance;
@@ -21,6 +19,8 @@ class NikonManager
 public:
     NikonManager();
     virtual ~NikonManager();
+    
+    friend class AsyncManager;
     
     static NikonManager *getInstance() {
           if (!instance)
@@ -67,18 +67,25 @@ public:
     LPRefObj    pRefSrc = NULL;
     
     bool resetSourceCommandLoop (int ulSrcID);
-    
+  
 private:
     bool sourceCommandLoop( LPRefObj pRefMod, ULONG ulSrcID );
     
     LPRefObj    pRefMod = NULL;
-   
-    
     char        psEnumItemString[64];
-    bool        m_asyncPaused;
+    ULONG       ulModID = 0;
+    ULONG       ulSrcID = 0;
+    bool        m_asyncPaused = true;
 };
 
-
-
-
+class AsyncManager
+{
+public:
+    AsyncManager() {}
+    AsyncManager(NikonManager *mgr);
+    virtual ~AsyncManager();
+    
+private:
+    NikonManager *m_mgr = 0;
+};
 #endif /* NikonManager_h */

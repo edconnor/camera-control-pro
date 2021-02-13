@@ -161,7 +161,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         movieFileOutput.stopRecording()
     }
     
-    
     @IBAction func startRecording(_ button: NSButton) {
         Swift.print("startRecording isEnabled = " + String(button.state.rawValue))
        
@@ -256,8 +255,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
             {
             case .video:
                 currentVideoDevice = selectedVideoDevice
-                //let formatName = CMFormatDescriptionGetExtension(videoDeviceFormat.formatDescription, extensionKey: kCMFormatDescriptionExtension_FormatName)
-                
                 break
             default:
                 break;
@@ -277,8 +274,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         }
         
         session.commitConfiguration ()
-        
-    
     }
 
     func setSelectedAudioDevice(selectedAudioDevice: AVCaptureDevice )
@@ -321,7 +316,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         }
         
         session.commitConfiguration ()
-       
     }
     
     func refreshDevices ()
@@ -340,7 +334,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         )
         self.audioDevices  = audioDiscoverySession.devices
     }
-    
     
     func fileOutputShouldProvideSampleAccurateRecordingStart(_ output: AVCaptureFileOutput) -> Bool {
             Swift.print("fileOutputShouldProvideSampleAccurateRecordingStart")
