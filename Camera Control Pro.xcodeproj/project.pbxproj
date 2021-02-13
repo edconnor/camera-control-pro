@@ -16,7 +16,6 @@
 		AA1F168825CF735B00418581 /* function.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168125CF735B00418581 /* function.cpp */; };
 		AA1F168925CF735B00418581 /* CallBack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168225CF735B00418581 /* CallBack.cpp */; };
 		AA1F168A25CF735B00418581 /* NikonNativeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168325CF735B00418581 /* NikonNativeEnums.swift */; };
-		AA1F168B25CF735B00418581 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AA1F168425CF735B00418581 /* main.cpp */; };
 		AA33B07A25D5083C006E66AC /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA33B07925D5083C006E66AC /* PopupView.swift */; };
 		AA55102425D39F0600F9ABAF /* SliderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA55102325D39F0600F9ABAF /* SliderStackView.swift */; };
 		AA738D3A25CE536300593F55 /* capInfoPageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AA738D3925CE536300593F55 /* capInfoPageData.json */; };
@@ -63,7 +62,6 @@
 		AA1F168125CF735B00418581 /* function.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = function.cpp; sourceTree = "<group>"; };
 		AA1F168225CF735B00418581 /* CallBack.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = CallBack.cpp; sourceTree = "<group>"; };
 		AA1F168325CF735B00418581 /* NikonNativeEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikonNativeEnums.swift; sourceTree = "<group>"; };
-		AA1F168425CF735B00418581 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		AA33B07925D5083C006E66AC /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		AA55102325D39F0600F9ABAF /* SliderStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderStackView.swift; sourceTree = "<group>"; };
 		AA738D3825CE531E00593F55 /* CameraControlPro.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraControlPro.pch; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				AAC132BB25CF7EC500DAEB90 /* NikonManagerWrapper.mm */,
 				AA1F168225CF735B00418581 /* CallBack.cpp */,
 				AA1F168125CF735B00418581 /* function.cpp */,
-				AA1F168425CF735B00418581 /* main.cpp */,
 				AA1F167D25CF735B00418581 /* NikonCameraFunctions.cpp */,
 				AA1F167E25CF735B00418581 /* NikonManager.cpp */,
 				AA1F168025CF735B00418581 /* NikonManager.h */,
@@ -327,7 +324,6 @@
 				AAD5402225CE6A300013A32D /* LiveViewController.swift in Sources */,
 				AAD5401E25CE67BB0013A32D /* WindowController.swift in Sources */,
 				AAD5402525CE6E070013A32D /* SplitViewController.swift in Sources */,
-				AA1F168B25CF735B00418581 /* main.cpp in Sources */,
 				AA11FA6D25D593C9007D314F /* ToggleView.swift in Sources */,
 				AAE34F0125CE50CE00007C78 /* AppDelegate.swift in Sources */,
 				AA738D6525CE626600593F55 /* CameraObject.swift in Sources */,

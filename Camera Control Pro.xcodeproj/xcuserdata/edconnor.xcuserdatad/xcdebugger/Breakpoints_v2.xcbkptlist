@@ -14,8 +14,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "ItmEventProc(refProc, ulEvent, data)"
             landmarkType = "9">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "DatEventProc(refProc, ulEvent, data)"
             landmarkType = "9">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "DataProc(ref, pInfo, pData)"
             landmarkType = "9">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "458"
-            endingLineNumber = "458"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "CompletionProc(pObject, ulCommand, ulParam, ulDataType, data, refComplete, nResult)"
             landmarkType = "9">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "485"
-            endingLineNumber = "485"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
             landmarkName = "ProgressProc(ulCommand, ulParam, refProc, ulDone, ulTotal)"
             landmarkType = "9">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "Camera Control Pro/NikonSDK/CallBack.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "543"
-            endingLineNumber = "543"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
             landmarkName = "UIRequestProc(ref, pUIRequest)"
             landmarkType = "9">
          </BreakpointContent>
@@ -114,38 +114,6 @@
             endingLineNumber = "88"
             landmarkName = "AsyncManager"
             landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "17CE6A57-80B8-48E4-8139-FED6C3B16024"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Camera Control Pro/NikonSDK/NikonManager.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "NikonManager::NikonManager()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AC6E2543-6769-4FE5-BEB7-ABE23CE77B8E"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Camera Control Pro/CameraObject.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "init()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

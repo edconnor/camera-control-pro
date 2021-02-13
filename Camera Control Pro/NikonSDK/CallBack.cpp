@@ -7,23 +7,16 @@
 #import <Foundation/Foundation.h>
 #include <stdlib.h>
 #include <stdio.h>
-#if defined( _WIN32 )
-    #include <windows.h>
-    #include <mmsystem.h>
-#elif defined(__APPLE__)
-    #include <sys/times.h>
-#endif
+
+#include <sys/times.h>
+
 #include "Maid3.h"
 #include "Maid3d1.h"
 #include "CtrlSample.h"
 #include "NikonCallback.h"
 #include "NikonManager.h"
 
-#if defined( _WIN32 )
-ULONG g_ulProgressValue;// used in only ProgressProc
-#elif defined(__APPLE__)
 unsigned long g_ulProgressValue;// used in only ProgressProc
-#endif
 BOOL    g_bFirstCall = TRUE;// used in ProgressProc, and DoDeleteDramImage
 
 //------------------------------------------------------------------------------------------------------------------------------------
@@ -45,7 +38,7 @@ void CALLPASCAL CALLBACK ModEventProc( NKREF refProc, ULONG ulEvent, NKPARAM dat
             NikonManager::getInstance()->pRefSrc = pRefChild;
             break;
         case kNkMAIDEvent_RemoveChild:
-           // bRet = RemoveChild( pRefParent, (SLONG)data );  // TODO ejc - What the fuck!!!
+           // bRet = RemoveChild( pRefParent, (SLONG)data );  // TODO ejc - WTF!!!
            // if ( bRet == FALSE ) return;
             bRet = TRUE;
             break;
@@ -477,28 +470,17 @@ void CALLPASCAL CALLBACK ProgressProc(
         ULONG                ulDone,                // Numerator
         ULONG                ulTotal )            // Denominator
 {
-#if defined( _WIN32 )
-    ULONG ulNewProgressValue, ulCount;
-#elif defined(__APPLE__)
     unsigned long ulNewProgressValue, ulCount;
-#endif
+
     if ( ulTotal == 0 ) {
         // when we don't know how long this process is, we show such as barber's pole.
         if ( ulDone == 1 ) {
-        #if defined( _WIN32 )
-            ulNewProgressValue = timeGetTime();
-            if( (ulNewProgressValue < g_ulProgressValue) || (ulNewProgressValue > g_ulProgressValue + 500) ) {
-                printf( "c" );
-                g_ulProgressValue = ulNewProgressValue;
-            }
-        #elif defined(__APPLE__)
             struct tms tm;
             ulNewProgressValue = times(&tm);
             if( (ulNewProgressValue < g_ulProgressValue) || (ulNewProgressValue > g_ulProgressValue + 30) ) {
                 printf( "c" );
                 g_ulProgressValue = ulNewProgressValue;
             }
-        #endif
         } else if ( ulDone == 0 ) {
                 printf( "o" );
         }

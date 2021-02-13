@@ -128,21 +128,10 @@ BOOL	IdleLoop( LPNkMAIDObject pObject, ULONG* pulCount, ULONG ulEndCount );
 void WaitEvent(void);
 
 
-BOOL	ItemCommandLoop( LPRefObj pRefSrc, ULONG ulItemID );
-BOOL	ImageCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
-BOOL	MovieCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
-BOOL	ThumbnailCommandLoop( LPRefObj pRefItm, ULONG ulDatID );
 BOOL	SelectSource( LPRefObj pRefMod, ULONG *pulSrcID );
 BOOL	SelectItem( LPRefObj pRefSrc, ULONG *pulItemID );
 BOOL	SelectData( LPRefObj pRefItm, ULONG *pulDataType );
 BOOL	CheckDataType( LPRefObj pRefItm, ULONG *pulDataType );
-BOOL	SetUpCamera1( LPRefObj pRefSrc );
-BOOL	SetUpCamera2( LPRefObj pRefSrc );
-BOOL	SetShootingMenu( LPRefObj pRefSrc );
-BOOL	SetMovieMenu(LPRefObj pRefSrc);
-BOOL	SetLiveView(LPRefObj pRefSrc);
-BOOL	SetCustomSettings( LPRefObj pRefSrc );
-BOOL	SetSBMenu( LPRefObj pRefSrc );
 BOOL	SetEnumCapability( LPRefObj pRefObj, ULONG ulCapID );
 BOOL	SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );
 BOOL	SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum );

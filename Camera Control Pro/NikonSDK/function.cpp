@@ -18,19 +18,27 @@
 #include "Maid3.h"
 #include "Maid3d1.h"
 #include "CtrlSample.h"
-//#import <Cocoa/Cocoa.h>
-//#import <Foundation/Foundation.h>
 
 #import "Camera Control Pro-Bridging-Header.h"
-
-
-
 
 extern ULONG    g_ulCameraType;    // CameraType
 #define VIDEO_SIZE_BLOCK  0x500000        // movie data read block size : 5MB
 
 #define ObjectBitmapHandle_Format_MOV    11    //MOV
 #define ObjectBitmapHandle_Format_MP4    12    //MP4
+
+
+// From Nikon main.cpp
+LPMAIDEntryPointProc    g_pMAIDEntryPoint = NULL;
+UCHAR    g_bFileRemoved = FALSE;
+ULONG    g_ulCameraType = 0;    // CameraType
+#if defined( _WIN32 )
+    HINSTANCE    g_hInstModule = NULL;
+#elif defined(__APPLE__)
+    CFBundleRef gBundle = NULL;
+#endif
+
+
 
 BOOL g_bCancel = FALSE;
 
@@ -250,7 +258,6 @@ void InitRefObj( LPRefObj pRef )
 // issue async command while wait for the CompletionProc called.
 BOOL IdleLoop( LPNkMAIDObject pObject, ULONG* pulCount, ULONG ulEndCount )
 {
-//    return TRUE;  // TODO ejc = check this out
     BOOL bRet = TRUE;
     while( *pulCount < ulEndCount && bRet == TRUE ) {
         bRet = Command_Async( pObject );
@@ -735,7 +742,7 @@ BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
 //    else
 //        printf( "0. Exit\nSelect (1-%d, 0)\n>", stEnum.ulElements );
 
-    //scanf( "%s", buf );   // TODO ejc
+    //scanf( "%s", buf );   
     //wSel = atoi( buf );   // TODO ejc
     wSel = 1;               // TODO ejc
     printf( "Device %d programmatically selected", wSel );
@@ -2178,34 +2185,7 @@ BOOL SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum ps
     //for ( i = 0; i < pstEnum->ulElements; i++ )
    //     printf( "%2d. %s\n", i + 1, GetEnumString( ulCapID, ((ULONG*)pstEnum->pData)[i], psString ) );
    // printf( "Current Setting: %d\n", pstEnum->ulValue + 1 );
-return TRUE; // TODO ejc test early return
-    
-#ifdef NEEDED
-    // check if this capability supports CapSet operation.
-    if ( CheckCapabilityOperation( pRefObj, ulCapID, kNkMAIDCapOperation_Set ) ) {
-        // This capablity can be set.
-        printf( "Input new value\n>" );
-        scanf( "%s", buf );
-        wSel = atoi( buf );
-        if ( wSel > 0 && wSel <= pstEnum->ulElements ) {
-            pstEnum->ulValue = wSel - 1;
-            // send the selected number
-            bRet = Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
-            // This statement can be changed as follows.
-            //bRet = Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_Unsigned, (NKPARAM)pstEnum->ulValue, NULL, NULL );
-            if( bRet == FALSE ) {
-                free( pstEnum->pData );
-                return FALSE;
-            }
-        }
-    } else {
-        // This capablity is read-only.
-        printf( "This value cannot be changed. Enter '0' to exit.\n>" );
-        scanf( "%s", buf );
-    }
-    free( pstEnum->pData );
     return TRUE;
-#endif
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 // Show the current setting of a Enum(Packed String) type capability and set a value for it.
@@ -2248,33 +2228,7 @@ BOOL SetEnumPackedStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnu
 //    }
 //    printf( "Current Setting: %d\n", pstEnum->ulValue + 1 );
 
-return bRet; // TODO ejc test early return
-#ifdef NEEDED
-    // check if this capability supports CapSet operation.
-    if ( CheckCapabilityOperation( pRefObj, ulCapID, kNkMAIDCapOperation_Set ) ) {
-        // This capablity can be set.
-        printf( "Input new value\n>" );
-        scanf( "%s", buf );
-        wSel = atoi( buf );
-        if ( wSel > 0 && wSel <= pstEnum->ulElements ) {
-            pstEnum->ulValue = wSel - 1;
-            // send the selected number
-            bRet = Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
-            // This statement can be changed as follows.
-            //bRet = Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_Unsigned, (NKPARAM)pstEnum->ulValue, NULL, NULL );
-            if( bRet == FALSE ) {
-                free( pstEnum->pData );
-                return FALSE;
-            }
-        }
-    } else {
-        // This capablity is read-only.
-        printf( "This value cannot be changed. Enter '0' to exit.\n>" );
-        scanf( "%s", buf );
-    }
-    free( pstEnum->pData );
-    return TRUE;
-#endif
+    return bRet;
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 // Show the current setting of a Enum(String Integer) type capability and set a value for it.
@@ -2313,33 +2267,8 @@ BOOL SetEnumStringCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstE
     for ( i = 0; i < pstEnum->ulElements; i++ )
         printf( "%2d. %s\n", i + 1, ((NkMAIDString*)pstEnum->pData)[i].str );
     printf( "Current Setting: %2d\n", pstEnum->ulValue + 1 );
-return TRUE; // TODO ejc test early return
-#ifdef NEEDED
-    // check if this capability supports CapSet operation.
-    if ( CheckCapabilityOperation( pRefObj, ulCapID, kNkMAIDCapOperation_Set ) ) {
-        // This capablity can be set.
-        printf( "Input new value\n>" );
-        scanf( "%s", buf );
-        wSel = atoi( buf );
-        if ( wSel > 0 && wSel <= pstEnum->ulElements ) {
-            pstEnum->ulValue = wSel - 1;
-            // send the selected number
-            bRet =Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_EnumPtr, (NKPARAM)pstEnum, NULL, NULL );
-            // This statement can be changed as follows.
-            //bRet = Command_CapSet( pRefObj->pObject, ulCapID, kNkMAIDDataType_Unsigned, (NKPARAM)pstEnum->ulValue, NULL, NULL );
-            if( bRet == FALSE ) {
-                free( pstEnum->pData );
-                return FALSE;
-            }
-        }
-    } else {
-        // This capablity is read-only.
-        printf( "This value cannot be changed. Enter '0' to exit.\n>" );
-        scanf( "%s", buf );
-    }
-    free( pstEnum->pData );
     return TRUE;
-#endif
+
 }
 //------------------------------------------------------------------------------------------------------------------------------------
 // Show the current setting of a Integer type capability and set a value for it.
