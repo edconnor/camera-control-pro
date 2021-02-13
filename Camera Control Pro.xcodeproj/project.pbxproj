@@ -41,7 +41,6 @@
 		AAD5401E25CE67BB0013A32D /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5401D25CE67BB0013A32D /* WindowController.swift */; };
 		AAD5402225CE6A300013A32D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5402125CE6A300013A32D /* LiveViewController.swift */; };
 		AAD5402525CE6E070013A32D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD5402425CE6E070013A32D /* SplitViewController.swift */; };
-		AADDEEAE25CF698A0010C70E /* MySwiftObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */; };
 		AAE34F0125CE50CE00007C78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE34F0025CE50CE00007C78 /* AppDelegate.swift */; };
 		AAE34F0625CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAE34F0425CE50CE00007C78 /* Camera_Control_Pro.xcdatamodeld */; };
 		AAE34F0825CE50CF00007C78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAE34F0725CE50CF00007C78 /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 		AA1F167925CF730F00418581 /* Maid3d1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maid3d1.h; sourceTree = "<group>"; };
 		AA1F167A25CF730F00418581 /* Maid3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maid3.h; sourceTree = "<group>"; };
 		AA1F167B25CF730F00418581 /* CtrlSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CtrlSample.h; sourceTree = "<group>"; };
-		AA1F167C25CF730F00418581 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		AA1F167D25CF735B00418581 /* NikonCameraFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NikonCameraFunctions.cpp; sourceTree = "<group>"; };
 		AA1F167E25CF735B00418581 /* NikonManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = NikonManager.cpp; sourceTree = "<group>"; };
 		AA1F167F25CF735B00418581 /* NikonNativeStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NikonNativeStructs.swift; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		AAD5401D25CE67BB0013A32D /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		AAD5402125CE6A300013A32D /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		AAD5402425CE6E070013A32D /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
-		AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftObject.swift; sourceTree = "<group>"; };
 		AAE34EFD25CE50CE00007C78 /* Camera Control Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Camera Control Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE34F0025CE50CE00007C78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAE34F0525CE50CE00007C78 /* Camera_Control_Pro.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Camera_Control_Pro.xcdatamodel; sourceTree = "<group>"; };
@@ -173,7 +170,6 @@
 				AA1F167B25CF730F00418581 /* CtrlSample.h */,
 				AA1F167A25CF730F00418581 /* Maid3.h */,
 				AA1F167925CF730F00418581 /* Maid3d1.h */,
-				AA1F167C25CF730F00418581 /* main.h */,
 				AAD4CB4A25CF6781003FC53B /* NikonCallback.cpp */,
 				AAD4CB4B25CF6781003FC53B /* NikonCallback.h */,
 				AAD4CB4625CF6729003FC53B /* NikonCallbackWrapper.h */,
@@ -223,7 +219,6 @@
 				AAD5401D25CE67BB0013A32D /* WindowController.swift */,
 				AAD5402425CE6E070013A32D /* SplitViewController.swift */,
 				AA738D6425CE626600593F55 /* CameraObject.swift */,
-				AADDEEAD25CF698A0010C70E /* MySwiftObject.swift */,
 				AAE34F0925CE50CF00007C78 /* Main.storyboard */,
 				AAC132C125CF9FD600DAEB90 /* MasterView */,
 				AA04C14425D2568000E9C5E5 /* DetailView */,
@@ -311,7 +306,6 @@
 			files = (
 				AA738D6025CE60CC00593F55 /* LiveView.swift in Sources */,
 				AA1F168925CF735B00418581 /* CallBack.cpp in Sources */,
-				AADDEEAE25CF698A0010C70E /* MySwiftObject.swift in Sources */,
 				AA738D6125CE60CC00593F55 /* LiveViewPreviewLayer.swift in Sources */,
 				AA1F168725CF735B00418581 /* NikonNativeStructs.swift in Sources */,
 				AAC132C425CFA00C00DAEB90 /* MasterViewController.swift in Sources */,

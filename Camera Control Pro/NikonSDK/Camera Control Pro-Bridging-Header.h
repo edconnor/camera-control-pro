@@ -6,7 +6,6 @@
 #define CameraControlProBridgingHeader_h
 
 #import <AVFoundation/AVFoundation.h>
-#include "main.h"
 #include "NikonManagerWrapper.h"
 #include "NikonCallbackWrapper.h"
 

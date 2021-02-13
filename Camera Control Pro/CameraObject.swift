@@ -64,18 +64,12 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         super.init()
         nikonManager.cameraObject = self
         CameraObjectVariables.cameraObject = self 
-//        MyVariables.document = self
-//
-//        nikonManager.document = self
-//
+
         nikonCallbackWrapper = NikonCallbackWrapper()
         nikonCallbackWrapper.cameraObject = self
-//        nikonManager.document = self
-    
+
         hasRecordingDevice = false
         recording = false
-       
-        //availableSessionPresets.append(AVCaptureSession.Preset.high)
 
         var prop = CMIOObjectPropertyAddress(
                     mSelector: CMIOObjectPropertySelector(kCMIOHardwarePropertyAllowScreenCaptureDevices),
@@ -106,20 +100,12 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         
         // MARK: Refresh Caps
         refreshCaps()
-        
-      
-        
     }
     
     override func awakeFromNib()
     {
-   super.awakeFromNib()
-    
+        super.awakeFromNib()
 
-//        previewView.document = self
-     
-       
-        // nikonManager.resetInstance()  //TODO ejc - test bridging
         audioLevelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioLevels), userInfo: nil, repeats: true)
         
         // Create primary LiveView capture layer
@@ -127,35 +113,22 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         
         //previewViewLayer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
         
-      
-//        
 //        previewViewLayer?.borderWidth = 2
 //        previewViewLayer?.borderColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
 //        previewViewLayer?.cornerRadius = 5.0
 //        previewViewLayer?.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        
-        
-        
+            
         let newPreviewLayer = AVCaptureVideoPreviewLayer()
         newPreviewLayer.session = session
         newPreviewLayer.frame  = previewView.bounds
-        
-        
-        
-        
-        
-        
         newPreviewLayer.layoutManager = CAConstraintLayoutManager()
-        
         newPreviewLayer.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
         
         previewView.layer?.addSublayer(newPreviewLayer)
         
         newPreviewLayer.addConstraint(CAConstraint(attribute: CAConstraintAttribute.midX, relativeTo: "superlayer", attribute: CAConstraintAttribute.minX))
         newPreviewLayer.addConstraint(CAConstraint(attribute: CAConstraintAttribute.midY, relativeTo: "superlayer", attribute: CAConstraintAttribute.minY))
-        
-        
-        
+
         newPreviewLayer.addConstraint(CAConstraint(attribute: CAConstraintAttribute.width, relativeTo: "superlayer", attribute: CAConstraintAttribute.width))
         newPreviewLayer.addConstraint(CAConstraint(attribute: CAConstraintAttribute.height, relativeTo: "superlayer", attribute: CAConstraintAttribute.height))
 
@@ -174,15 +147,9 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
 
         refreshDevices()
         
-//        let win:MyWindowController = previewView.window?.windowController as! MyWindowController
-//
-//        win.videoDevices = videoDevices;
-        
- 
         let context = ["Nikon 6 ZII": "@Async"]
         timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireAsyncTimer), userInfo: context, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
-        
     }
 
     @IBAction func setVolume (_ volume: NSObject)
@@ -342,8 +309,6 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         } catch  {
            
         }
-        
-        //let isEnabled: Bool = currentVideoDevice.transportControlsSupported
         
 
         hasRecordingDevice = true
