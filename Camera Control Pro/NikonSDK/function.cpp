@@ -717,7 +717,7 @@ BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
 
     if ( stEnum.ulElements == 0 ) {
         printf( "There is no Source object.\n0. Exit\n>" );
-        scanf( "%s", buf );
+        //scanf( "%s", buf );
         return TRUE;
     }
 

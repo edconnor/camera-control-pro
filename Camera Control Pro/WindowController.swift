@@ -67,10 +67,8 @@ class WindowController: NSWindowController, NSToolbarDelegate, NSSplitViewDelega
         cameraObject = contentCameraObject();
     }
     
-    // Convenience accessor to our CameraObject found in the content view controller (ViewController.swift).
+    // Convenience accessor to our CameraObject found in CameraObjectVariables.
     func contentCameraObject() -> CameraObject {
-//        let viewController = self.contentViewController as? SplitViewController
-//        return viewController!.cameraObject
         return CameraObjectVariables.cameraObject
     }
    
@@ -78,7 +76,6 @@ class WindowController: NSWindowController, NSToolbarDelegate, NSSplitViewDelega
     @IBAction func videoSelect (_ video: NSObject)
     {
         cameraObject.setSelectedVideoDevice(selectedVideoDevice: cameraObject.currentVideoDevice)
-       // cameraObject.nikonCallbackWrapper.callbackEvent(4, 6, 67)
     }
     
 

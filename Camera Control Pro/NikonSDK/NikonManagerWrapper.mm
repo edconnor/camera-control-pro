@@ -9,7 +9,7 @@
 #import "NikonManagerWrapper.h"
 #import "NikonManager.h"
 #import "Maid3d1.h"
-//#import "testCameraControlProApp-Swift.h"
+
 @implementation NikonManagerWrapper
 
 static class NikonManager *nikonManager = nil;
@@ -119,19 +119,8 @@ static class NikonManager *nikonManager = nil;
 
 
 - (void)async  {
-  
     nikonManager->async();
 }
-
-- (bool) resetSourceCommandLoop : (int) ulSrcID
-{
-    NikonManager::resetInstance();
-    NikonManager::getInstance();
-   // return nikonManager->resetSourceCommandLoop(1);
-    
-    return true;
-}
-
 
 - (void)dealloc
 {

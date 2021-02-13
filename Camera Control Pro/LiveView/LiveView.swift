@@ -1,6 +1,6 @@
 //
-//  MouseViewSwiftUi.swift
-//  testmacos
+//  LiveView.swift
+//  Camera Control Pro
 //
 //  Created by Eduardo Connor on 12/26/20.
 //

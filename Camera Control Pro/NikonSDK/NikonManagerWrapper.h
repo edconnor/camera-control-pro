@@ -53,8 +53,6 @@
 
 - (void) resetInstance;
 
-- (bool) resetSourceCommandLoop : (int) ulSrcID;
-
 @end
 
 #endif /* NikonManagerWrapper_h */

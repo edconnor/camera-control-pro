@@ -35,7 +35,7 @@ void CALLPASCAL CALLBACK ModEventProc( NKREF refProc, ULONG ulEvent, NKPARAM dat
             bRet = EnumChildrten( pRefChild->pObject );
             if ( bRet == FALSE ) return;
             
-            NikonManager::getInstance()->pRefSrc = pRefChild;
+            NikonManager::getInstance()->setRefSrc(pRefChild);
             break;
         case kNkMAIDEvent_RemoveChild:
            // bRet = RemoveChild( pRefParent, (SLONG)data );  // TODO ejc - WTF!!!
@@ -89,7 +89,8 @@ void CALLPASCAL CALLBACK SrcEventProc( NKREF refProc, ULONG ulEvent, NKPARAM dat
             // Enumerate children(Data Objects) and open them.
             bRet = EnumChildrten( pRefChild->pObject );
             if ( bRet == FALSE ) return;
-            NikonManager::getInstance()->pRefSrc = pRefChild;
+        
+            NikonManager::getInstance()->setRefSrc(pRefChild);
             break;
         case kNkMAIDEvent_RemoveChild:
             bRet = RemoveChild( pRefParent, (SLONG)data );

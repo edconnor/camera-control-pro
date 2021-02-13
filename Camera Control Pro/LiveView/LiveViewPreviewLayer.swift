@@ -1,12 +1,11 @@
 //
-//  LiveViewOverlay.swift
+//  LiveViewPreviewLayer.swift
 //  Camera Control Pro
 //
 //  Created by Eduardo Connor on 1/11/21.
 //
 
 import AVFoundation
-import SwiftUI
 
 public class LiveViewPreviewLayer: AVCaptureVideoPreviewLayer {
     public var cornerLength: CGFloat = 30
@@ -21,10 +20,10 @@ public class LiveViewPreviewLayer: AVCaptureVideoPreviewLayer {
        }
 
     public override var frame: CGRect {
-           didSet {
-               setNeedsDisplay()
-           }
+       didSet {
+           setNeedsDisplay()
        }
+   }
     
     private var maskContainer: CGRect {
         CGRect(x: (bounds.width / 2) - (maskSize.width / 2),

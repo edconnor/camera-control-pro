@@ -1,11 +1,9 @@
 //
 //  CameraObject.swift
-//  testCameraControlProApp
+//  Camera Control Pro
 //
 //  Created by Eduardo Connor on 1/30/21.
 //
-
-//import SwiftUI
 
 import AVFoundation
 import CoreMediaIO

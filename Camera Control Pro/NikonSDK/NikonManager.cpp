@@ -34,57 +34,57 @@ NikonManager::NikonManager()
     }
     
     // Allocate memory for reference to Module object.
-    pRefMod = (LPRefObj)malloc(sizeof(RefObj));
-    if ( pRefMod == NULL ) {
+    m_pRefMod = (LPRefObj)malloc(sizeof(RefObj));
+    if ( m_pRefMod == NULL ) {
         puts( "There is not enough memory." );
         
     }
-    InitRefObj( pRefMod );
+    InitRefObj( m_pRefMod );
     
     // Allocate memory for Module object.
-    pRefMod->pObject = (LPNkMAIDObject)malloc(sizeof(NkMAIDObject));
-    if ( pRefMod->pObject == NULL ) {
+    m_pRefMod->pObject = (LPNkMAIDObject)malloc(sizeof(NkMAIDObject));
+    if ( m_pRefMod->pObject == NULL ) {
         puts( "There is not enough memory." );
-        if ( pRefMod != NULL )
-            free( pRefMod );
+        if ( m_pRefMod != NULL )
+            free( m_pRefMod );
     }
 
     //    Open Module object
-    pRefMod->pObject->refClient = (NKREF)pRefMod;
+    m_pRefMod->pObject->refClient = (NKREF)m_pRefMod;
     bRet = Command_Open(    NULL,                    // When Module_Object will be opend, "pParentObj" is "NULL".
-                                pRefMod->pObject,    // Pointer to Module_Object
-                                ulModID );            // Module object ID set by Client
+                                m_pRefMod->pObject,    // Pointer to Module_Object
+                        m_ulModID );            // Module object ID set by Client
     if ( bRet == FALSE ) {
         puts( "Module object can't be opened.\n" );
-        if ( pRefMod->pObject != NULL )    free( pRefMod->pObject );
-        if ( pRefMod != NULL )
-            free( pRefMod );
+        if ( m_pRefMod->pObject != NULL )    free( m_pRefMod->pObject );
+        if ( m_pRefMod != NULL )
+            free( m_pRefMod );
     }
     
     //    Enumerate Capabilities that the Module has.
-    bRet = EnumCapabilities( pRefMod->pObject, &(pRefMod->ulCapCount), &(pRefMod->pCapArray), NULL, NULL );
+    bRet = EnumCapabilities( m_pRefMod->pObject, &(m_pRefMod->ulCapCount), &(m_pRefMod->pCapArray), NULL, NULL );
     if ( bRet == FALSE ) {
         puts( "Failed in enumeration of capabilities." );
-        if ( pRefMod->pObject != NULL )
-            free( pRefMod->pObject );
-        if ( pRefMod != NULL )
-            free( pRefMod );
+        if ( m_pRefMod->pObject != NULL )
+            free( m_pRefMod->pObject );
+        if ( m_pRefMod != NULL )
+            free( m_pRefMod );
         
     }
 
     //    Set the callback functions(ProgressProc, EventProc and UIRequestProc).
-    bRet = SetProc( pRefMod );
+    bRet = SetProc( m_pRefMod );
     if ( bRet == FALSE ) {
         puts( "Failed in setting a call back function." );
-        if ( pRefMod->pObject != NULL )
-            free( pRefMod->pObject );
-        if ( pRefMod != NULL )
-            free( pRefMod );
+        if ( m_pRefMod->pObject != NULL )
+            free( m_pRefMod->pObject );
+        if ( m_pRefMod != NULL )
+            free( m_pRefMod );
     }
 
     //    Set the kNkMAIDCapability_ModuleMode.
-    if( CheckCapabilityOperation( pRefMod, kNkMAIDCapability_ModuleMode, kNkMAIDCapOperation_Set )  ){
-        bRet = Command_CapSet( pRefMod->pObject, kNkMAIDCapability_ModuleMode, kNkMAIDDataType_Unsigned,
+    if( CheckCapabilityOperation( m_pRefMod, kNkMAIDCapability_ModuleMode, kNkMAIDCapOperation_Set )  ){
+        bRet = Command_CapSet( m_pRefMod->pObject, kNkMAIDCapability_ModuleMode, kNkMAIDDataType_Unsigned,
                                         (NKPARAM)kNkMAIDModuleMode_Controller, NULL, NULL);
         if ( bRet == FALSE ) {
             puts( "Failed in setting kNkMAIDCapability_ModuleMode." );
@@ -93,14 +93,14 @@ NikonManager::NikonManager()
     
     //case 1:// Children
     // Select Device
-    ulSrcID = 0;    // 0 means Device count is zero.
-    bRet = SelectSource( pRefMod, &ulSrcID );
+    m_ulSrcID = 0;    // 0 means Device count is zero.
+    bRet = SelectSource( m_pRefMod, &m_ulSrcID );
     if ( bRet == FALSE )
         puts( "Select Device failed in NikonManager" );
         
-    if( ulSrcID > 0 )
+    if( m_ulSrcID > 0 )
     {
-        bRet = sourceCommandLoop( pRefMod, ulSrcID );
+        bRet = sourceCommandLoop( m_pRefMod );
         if (bRet == FALSE)
             puts( "SourceCommandLoop failed in NikonManager" );
     }
@@ -110,7 +110,7 @@ NikonManager::NikonManager()
 NikonManager::~NikonManager()
 {
     // Close Module_Object
-    BOOL bRet = Close_Module( pRefMod );
+    BOOL bRet = Close_Module( m_pRefMod );
     if ( bRet == FALSE )
         puts( "Module object can not be closed.\n" );
 
@@ -123,10 +123,10 @@ NikonManager::~NikonManager()
     }
     
     // Free memory blocks allocated in this function.
-    if ( pRefMod->pObject != NULL )
-        free( pRefMod->pObject );
-    if ( pRefMod != NULL )
-        free( pRefMod );
+    if ( m_pRefMod->pObject != NULL )
+        free( m_pRefMod->pObject );
+    if ( m_pRefMod != NULL )
+        free( m_pRefMod );
 }
 
 void NikonManager::async()
@@ -134,7 +134,7 @@ void NikonManager::async()
     bool bRet = true;
     
     if  (m_asyncPaused == false)
-        bRet = Command_Async( pRefMod->pObject );
+        bRet = Command_Async( m_pRefMod->pObject );
 }
 
 void NikonManager::getCap(ULONG ulParam, ULONG ulDataType, NKPARAM pData)
@@ -142,14 +142,14 @@ void NikonManager::getCap(ULONG ulParam, ULONG ulDataType, NKPARAM pData)
     bool bRet = false;
     AsyncManager(this);
     
-    bRet = Command_CapGet( pRefSrc->pObject, kNkMAIDCapability_FocalLength, kNkMAIDDataType_FloatPtr,(NKPARAM) pData, NULL, NULL );
+    bRet = Command_CapGet( refObj()->pObject, kNkMAIDCapability_FocalLength, kNkMAIDDataType_FloatPtr,(NKPARAM) pData, NULL, NULL );
 }
 
 int NikonManager::getCapUnsigned(ULONG ulCapID, ULONG* ulValue)
 {
     AsyncManager amgr(this);
   
-    return GetUnsignedCapability((LPRefObj)pRefSrc, ulCapID, ulValue);
+    return GetUnsignedCapability(refObj(), ulCapID, ulValue);
 }
 
 BYTE NikonManager::getCapBool(ULONG ulCapID)
@@ -158,7 +158,7 @@ BYTE NikonManager::getCapBool(ULONG ulCapID)
     BYTE ulValue = 0;
     
     AsyncManager amgr(this);
-    bRet = GetBoolCapability(pRefSrc, ulCapID, &ulValue);
+    bRet = GetBoolCapability(refObj(), ulCapID, &ulValue);
    
     return ulValue;
 }
@@ -167,42 +167,42 @@ bool NikonManager::getCapString (ULONG ulCapID,  char *psString)
 {
     AsyncManager amgr(this);
     
-    return GetStringCapability( pRefSrc,  ulCapID, psString);
+    return GetStringCapability( refObj(),  ulCapID, psString);
 }
 
 bool  NikonManager::setCapBool (ULONG ulCapID, bool bFlag)
 {
     AsyncManager amgr(this);
 
-    return SetBoolCapability(pRefSrc, ulCapID, bFlag);
+    return SetBoolCapability(refObj(), ulCapID, bFlag);
 }
 
 bool  NikonManager::setCapUnsigned  (ULONG ulCapID, ULONG ulValue)
 {
     AsyncManager amgr(this);
    
-    return SetUnsignedCapability(pRefSrc, ulCapID, ulValue);
+    return SetUnsignedCapability(refObj(), ulCapID, ulValue);
 }
 
 bool  NikonManager::setCapDouble    (ULONG ulCapID, double fValue)
 {
     AsyncManager amgr(this);
    
-    return SetFloatCapability(pRefSrc, ulCapID, fValue);
+    return SetFloatCapability(refObj(), ulCapID, fValue);
 }
 
 bool  NikonManager::setCapRange    (ULONG ulCapID, double fValue)
 {
     AsyncManager amgr(this);
 
-    return SetRangeCapability (pRefSrc, ulCapID, fValue);
+    return SetRangeCapability (refObj(), ulCapID, fValue);
 }
 
 bool NikonManager::setCapEnum (ULONG ulCapID, int index)
 {
     AsyncManager amgr(this);
 
-    return SetEnumCapability(pRefSrc, ulCapID, index);
+    return SetEnumCapability(refObj(), ulCapID, index);
 }
 
 double NikonManager::getCapDouble(ULONG ulCapID)
@@ -211,7 +211,7 @@ double NikonManager::getCapDouble(ULONG ulCapID)
     bool bRet = false;
     double ulValue = 0;
     
-    bRet = GetFloatCapability((LPRefObj)pRefSrc, ulCapID, (ULONG*)&ulValue);
+    bRet = GetFloatCapability(refObj(), ulCapID, (ULONG*)&ulValue);
 
     return ulValue;
 }
@@ -220,41 +220,41 @@ int NikonManager::getCapRange(ULONG ulCapID,  LPNkMAIDRange pRange)
 {
     AsyncManager amgr(this);
 
-    return GetRangeCapability(pRefSrc, ulCapID, pRange);
+    return GetRangeCapability(refObj(), ulCapID, pRange);
 }
 
 int NikonManager::getCapCount()
 {
     AsyncManager amgr(this);
 
-    return GetCapCount(pRefSrc->pObject);
+    return GetCapCount(refObj()->pObject);
 }
 
 bool  NikonManager::getCapInfo(LPNkMAIDCapInfo ppCapArray,  int count)
 {
     AsyncManager amgr(this);
 
-    return GetCapInfoObj( pRefSrc->pObject, &ppCapArray, count, NULL, NULL );
+    return GetCapInfoObj( refObj()->pObject, &ppCapArray, count, NULL, NULL );
 }
 
 bool NikonManager::canSet ( int capId)
 {
     AsyncManager amgr(this);
-    return CheckCapabilityOperation(pRefSrc, capId, kNkMAIDCapOperation_Set);
+    return CheckCapabilityOperation(refObj(), capId, kNkMAIDCapOperation_Set);
 }
 
 bool NikonManager::getCapArray (LPNkMAIDEnum pStEnum, int capId)
 {
     AsyncManager amgr(this);
    
-    return GetEnumArrayCapability(pRefSrc, capId, pStEnum);
+    return GetEnumArrayCapability(refObj(), capId, pStEnum);
 }
 
 char * NikonManager::getEnumString(int capId, int itemId)
 {
     AsyncManager amgr(this);
    
-    return GetEnumString(  capId,  itemId, psEnumItemString );
+    return GetEnumString(  capId,  itemId, m_psEnumItemString );
 }
 
 int NikonManager::getCapEnumIndex (ULONG ulCapID)
@@ -263,7 +263,7 @@ int NikonManager::getCapEnumIndex (ULONG ulCapID)
     bool bRet = false;
     int ulValue = -1;
 
-    bRet = GetEnumCapabilityIndex (pRefSrc,ulCapID, &ulValue);
+    bRet = GetEnumCapabilityIndex (refObj(),ulCapID, &ulValue);
     
     return ulValue;
 }
@@ -272,38 +272,30 @@ bool NikonManager::enumCapabilities( ULONG* pulCapCount, LPNkMAIDCapInfo* ppCapA
 {
     AsyncManager amgr(this);
  
-    return EnumCapabilities( pRefMod->pObject ,  pulCapCount,  ppCapArray, NULL, NULL);
+    return EnumCapabilities( m_pRefMod->pObject ,  pulCapCount,  ppCapArray, NULL, NULL);
 }
 
-bool NikonManager::resetSourceCommandLoop (int ulSrcID)
+bool NikonManager::sourceCommandLoop( LPRefObj m_pRefMod )
 {
-    AsyncManager amgr(this);
-    bool bRet = false;
-    
-    // Close Source_Object
-    bRet = RemoveChild( pRefMod, ulSrcID );
-    if (bRet)
-      sourceCommandLoop(  pRefMod, ulSrcID); // TODO ejc
-    
-    return bRet;
-}
-
-bool NikonManager::sourceCommandLoop( LPRefObj pRefMod, ULONG ulSrcID )
-{
-    pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
-    if ( pRefSrc == NULL ) {
+    m_pRefSrc = GetRefChildPtr_ID( m_pRefMod, m_ulSrcID );
+    if ( m_pRefSrc == NULL ) {
         // Create Source object and RefSrc structure.
-        if ( AddChild( pRefMod, ulSrcID ) == TRUE ) {
+        if ( AddChild( m_pRefMod, m_ulSrcID ) == TRUE ) {
             printf("Source object is opened.\n");
         } else {
             printf("Source object can't be opened.\n");
             return false;
         }
-        pRefSrc = GetRefChildPtr_ID( pRefMod, ulSrcID );
+        m_pRefSrc = GetRefChildPtr_ID( m_pRefMod, m_ulSrcID );
     }
     return true;
 }
 
+
+LPRefObj NikonManager::refObj()
+{
+    return m_ulSrcID == 0 ? m_pRefMod: m_pRefSrc;
+}
 
 AsyncManager::AsyncManager(NikonManager *mgr)
 {
