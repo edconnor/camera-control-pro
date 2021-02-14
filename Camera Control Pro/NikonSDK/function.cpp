@@ -696,11 +696,10 @@ BOOL Command_Async(LPNkMAIDObject pobject)
 //
 BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
 {
-    BOOL    bRet;
-    NkMAIDEnum    stEnum;
-    char    buf[256];
-    UWORD    wSel;
-    //ULONG    i;
+    BOOL        bRet;
+    NkMAIDEnum  stEnum;
+    UWORD       wSel;
+
     LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, kNkMAIDCapability_Children );
     if ( pCapInfo == NULL ) return FALSE;
 
@@ -718,7 +717,7 @@ BOOL SelectSource( LPRefObj pRefObj, ULONG *pulSrcID )
     if ( stEnum.ulElements == 0 ) {
         printf( "There is no Source object.\n0. Exit\n>" );
         //scanf( "%s", buf );
-        return TRUE;
+        return FALSE;
     }
 
     // allocate memory for array data
@@ -2149,10 +2148,6 @@ BOOL SetEnumCapability( LPRefObj pRefObj, ULONG ulCapID )
 BOOL SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum pstEnum )
 {
     BOOL    bRet;
-    char    buf[256];
-    //char    psString[64];
-    
-    //ULONG    i;
     
     LPNkMAIDCapInfo pCapInfo = GetCapInfo( pRefObj, ulCapID );
     if ( pCapInfo == NULL ) return FALSE;
@@ -2165,7 +2160,7 @@ BOOL SetEnumUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, LPNkMAIDEnum ps
     {
         // This capablity has no element and is not available.
         printf( "There is no element in this capability. Enter '0' to exit.\n>" );
-        scanf( "%s", buf );
+        //scanf( "%s", buf );
         return TRUE;
     }
 

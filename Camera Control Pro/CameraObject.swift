@@ -109,12 +109,10 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         // Create primary LiveView capture layer
         var previewViewLayer = previewView.layer
         
-        //previewViewLayer?.backgroundColor = NSColor.windowBackgroundColor.cgColor
-        
-//        previewViewLayer?.borderWidth = 2
-//        previewViewLayer?.borderColor = CGColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
-//        previewViewLayer?.cornerRadius = 5.0
-//        previewViewLayer?.shadowOffset = CGSize(width: 3.0, height: 3.0)
+        previewViewLayer?.borderWidth = 1
+        previewViewLayer?.borderColor = CGColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+        previewViewLayer?.cornerRadius = 5.0
+        previewViewLayer?.shadowOffset = CGSize(width: 3.0, height: 3.0)
             
         let newPreviewLayer = AVCaptureVideoPreviewLayer()
         newPreviewLayer.session = session
@@ -146,7 +144,9 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         refreshDevices()
         
         let context = ["Nikon 6 ZII": "@Async"]
-        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(fireAsyncTimer), userInfo: context, repeats: true)
+        
+        let ayncRate = nikonManager.asyncRate();
+        timer = Timer(timeInterval: ayncRate, target: self, selector: #selector(fireAsyncTimer), userInfo: context, repeats: true)
         RunLoop.current.add(timer, forMode: .common)
     }
 

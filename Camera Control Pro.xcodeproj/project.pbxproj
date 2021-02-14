@@ -29,6 +29,7 @@
 		AA738D6025CE60CC00593F55 /* LiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D5E25CE60CC00593F55 /* LiveView.swift */; };
 		AA738D6125CE60CC00593F55 /* LiveViewPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D5F25CE60CC00593F55 /* LiveViewPreviewLayer.swift */; };
 		AA738D6525CE626600593F55 /* CameraObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA738D6425CE626600593F55 /* CameraObject.swift */; };
+		AAA82C4625D8AAE7002F4286 /* modPageData.json in Resources */ = {isa = PBXBuildFile; fileRef = AAA82C4525D8AAE7002F4286 /* modPageData.json */; };
 		AAAF3E0025CF371A00F1C8C8 /* Type0029 Module.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */; };
 		AAC132BC25CF7EC500DAEB90 /* NikonManagerWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAC132BB25CF7EC500DAEB90 /* NikonManagerWrapper.mm */; };
 		AAC132C425CFA00C00DAEB90 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC132C325CFA00C00DAEB90 /* MasterViewController.swift */; };
@@ -74,6 +75,7 @@
 		AA738D5E25CE60CC00593F55 /* LiveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveView.swift; sourceTree = "<group>"; };
 		AA738D5F25CE60CC00593F55 /* LiveViewPreviewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewPreviewLayer.swift; sourceTree = "<group>"; };
 		AA738D6425CE626600593F55 /* CameraObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraObject.swift; sourceTree = "<group>"; };
+		AAA82C4525D8AAE7002F4286 /* modPageData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = modPageData.json; path = "Camera Control Pro/modPageData.json"; sourceTree = "<group>"; };
 		AAAF3DFA25CF35B100F1C8C8 /* Camera Control Pro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Camera Control Pro-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = "Type0029 Module.bundle"; path = "Camera Control Pro/NikonSDK/bin/Type0029 Module.bundle"; sourceTree = "<group>"; };
 		AAC132BA25CF7EC500DAEB90 /* NikonManagerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NikonManagerWrapper.h; sourceTree = "<group>"; };
@@ -122,11 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				AA738D4025CE564E00593F55 /* DetailViewController.swift */,
+				AAC132CA25CFA0D700DAEB90 /* CapInfoPage.swift */,
 				AA33B07925D5083C006E66AC /* PopupView.swift */,
 				AA55102325D39F0600F9ABAF /* SliderStackView.swift */,
 				AA11FA6F25D5AEBC007D314F /* TextFieldView.swift */,
 				AA11FA6C25D593C9007D314F /* ToggleView.swift */,
-				AAC132CA25CFA0D700DAEB90 /* CapInfoPage.swift */,
 				AA11FA7325D5C8F5007D314F /* StringView.swift */,
 			);
 			path = DetailView;
@@ -197,6 +199,7 @@
 			children = (
 				AAAF3DFF25CF371A00F1C8C8 /* Type0029 Module.bundle */,
 				AA738D3925CE536300593F55 /* capInfoPageData.json */,
+				AAA82C4525D8AAE7002F4286 /* modPageData.json */,
 				AA738D3825CE531E00593F55 /* CameraControlPro.pch */,
 				AAE34EFF25CE50CE00007C78 /* Camera Control Pro */,
 				AAE34EFE25CE50CE00007C78 /* Products */,
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAA82C4625D8AAE7002F4286 /* modPageData.json in Resources */,
 				AAAF3E0025CF371A00F1C8C8 /* Type0029 Module.bundle in Resources */,
 				AA738D3A25CE536300593F55 /* capInfoPageData.json in Resources */,
 				AAE34F0825CE50CF00007C78 /* Assets.xcassets in Resources */,

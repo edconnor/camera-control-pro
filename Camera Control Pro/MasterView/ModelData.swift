@@ -7,8 +7,9 @@
 
 import Foundation
 
-final class ModelData: ObservableObject {
+final class ModelData {
     var capInfoPages: [CapInfoPage] = load("capInfoPageData.json")
+    var modInfoPage:  CapInfoPage   = load("modPageData.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

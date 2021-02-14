@@ -28,10 +28,10 @@ class DetailViewController: NSViewController {
     var modelData: ModelData!
     var capViews:  Dictionary = [Int: NSView]()
     var gridViews: Dictionary = [Int: NSGridView]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         nikonManager.cameraObject.detailViewController = self
     }
 
@@ -73,7 +73,15 @@ class DetailViewController: NSViewController {
     func createControls(pageId: Int) {
         var views = [[NSView]]()
         
-        for capability in modelData.capInfoPages[pageId].capabilities {
+        let capInfoPage:CapInfoPage
+        
+        if nikonManager.cameraConnected() {
+            capInfoPage = modelData.capInfoPages[pageId]
+        } else {
+            capInfoPage = modelData.modInfoPage
+        }
+        
+        for capability in capInfoPage.capabilities {
             let capinfo = nikonManager.cameraObject.caps[capability]
 
             if (capinfo == nil) {

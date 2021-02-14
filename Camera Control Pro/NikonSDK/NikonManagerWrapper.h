@@ -23,33 +23,31 @@
 @end
 
 @interface NikonManagerWrapper()
+
 - (int)     getCapUnsigned: (int) ulCapID : (ULONG*) ulValue;
 - (bool)    getCapBool: (int) ulCapID;
-
 - (double)  getCapDouble:   (int) ulCapID;
 - (int)     getCapEnumIndex: (int) capId; // returns current index (zero-based)
 - (int)     getCapRange: (int) ulCapID :(LPNkMAIDRange) pRange;
 - (bool)    getCapString: (int )capId : (char *)psString;
+- (bool)    getCapArray:   (void*) ppCapArray : (int) capId;
+- (bool)    getCapInfoObj: (void*) ppCapArray : (int) count;
+- (char *)  getEnumString: (int) capId : (int) itemId;
+- (int)     getCapCount;
+- (int)     getSrcId;
 
-- (bool) getCapArray:   (void*) ppCapArray : (int) capId;
-- (bool) getCapInfoObj: (void*) ppCapArray : (int) count;
+- (bool)    setCapBool: (int) ulCapID : (bool) bFlag;
+- (bool)    setCapUnsigned: (int) ulCapID : (ULONG) ulValue;
+- (bool)    setCapDouble: (int) ulCapID : (double) fValue;
+- (bool)    setCapRange: (int) ulCapID : (double) fValue;
+- (bool)    setCapEnum: (int) capId : (int) index;
 
-- (char *) getEnumString: (int) capId : (int) itemId;
+- (bool)    canSet: (int) capId;
+- (bool)    cameraConnected;
 
-
-
-- (bool)   setCapBool: (int) ulCapID : (bool) bFlag;
-- (bool)   setCapUnsigned: (int) ulCapID : (ULONG) ulValue;
-- (bool)   setCapDouble: (int) ulCapID : (double) fValue;
-- (bool)   setCapRange: (int) ulCapID : (double) fValue;
-- (bool)   setCapEnum: (int) capId : (int) index;
-
-- (bool) canSet: (int) capId;
-
-- (int)getCapCount;
-
-- (bool) enumCapabilities: (uint32_t*) pulCapCount : (LPNkMAIDCapInfo*) ppCapArray : (LPNKFUNC) pfnComplete : (NKREF) refComplete;
-- (void)async;
+- (bool)    enumCapabilities: (uint32_t*) pulCapCount : (LPNkMAIDCapInfo*) ppCapArray : (LPNKFUNC) pfnComplete : (NKREF) refComplete;
+- (void)    async;
+- (double)  asyncRate;
 
 - (void) resetInstance;
 

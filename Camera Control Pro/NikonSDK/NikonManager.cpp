@@ -95,8 +95,12 @@ NikonManager::NikonManager()
     // Select Device
     m_ulSrcID = 0;    // 0 means Device count is zero.
     bRet = SelectSource( m_pRefMod, &m_ulSrcID );
-    if ( bRet == FALSE )
+    if ( bRet == FALSE ) {
         puts( "Select Device failed in NikonManager" );
+        m_asyncPaused = true;
+        return;
+    }
+
         
     if( m_ulSrcID > 0 )
     {
@@ -104,7 +108,9 @@ NikonManager::NikonManager()
         if (bRet == FALSE)
             puts( "SourceCommandLoop failed in NikonManager" );
     }
+    
     m_asyncPaused = false;
+    m_cameraConnected = true;
 }
 
 NikonManager::~NikonManager()
@@ -133,8 +139,22 @@ void NikonManager::async()
 {
     bool bRet = true;
     
+    if (!m_cameraConnected)
+        return;
+    
     if  (m_asyncPaused == false)
-        bRet = Command_Async( m_pRefMod->pObject );
+        bRet = Command_Async(refObj()->pObject );
+}
+
+double NikonManager::asyncRate()
+{
+    AsyncManager amgr(this);
+    
+    ULONG ulValue = 0;
+
+    GetUnsignedCapability(m_pRefMod, kNkMAIDCapability_AsyncRate, &ulValue);
+    
+    return ulValue/1000.0; // convert to miiliseconds
 }
 
 void NikonManager::getCap(ULONG ulParam, ULONG ulDataType, NKPARAM pData)

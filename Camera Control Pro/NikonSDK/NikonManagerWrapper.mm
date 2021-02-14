@@ -95,9 +95,14 @@ static class NikonManager *nikonManager = nil;
     return nikonManager->getCapArray((LPNkMAIDEnum) pStEnum, capId);
 }
 
-- (int)getCapCount;
+- (int) getCapCount
 {
     return nikonManager->getCapCount();
+}
+
+- (int) getSrcId
+{
+    return nikonManager->getSrcId();
 }
 
 - (char *) getEnumString: (int) capId : (int) itemId
@@ -105,21 +110,30 @@ static class NikonManager *nikonManager = nil;
     return nikonManager->getEnumString(capId, itemId);
 }
 
-
 - (bool) canSet: (int) capId
 {
     return nikonManager->canSet(capId);
 }
 
+- (bool) cameraConnected
+{
+    return nikonManager->cameraConnected();
+}
+
 - (bool) enumCapabilities: (uint32_t*) pulCapCount : (LPNkMAIDCapInfo*) ppCapArray : (LPNKFUNC) pfnComplete : (NKREF) refComplete
 {
-    
     return nikonManager->enumCapabilities(  pulCapCount,  ppCapArray,  pfnComplete,  refComplete);
 }
 
-
-- (void)async  {
+- (void)async
+{
     nikonManager->async();
+}
+
+
+- (double)  asyncRate
+{
+    return nikonManager->asyncRate();
 }
 
 - (void)dealloc

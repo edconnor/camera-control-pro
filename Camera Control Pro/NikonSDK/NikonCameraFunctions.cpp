@@ -142,8 +142,6 @@ BOOL GetUnsignedCapability( LPRefObj pRefObj, ULONG ulCapID, ULONG* pulValue )
     bRet = Command_CapGetSB( pRefObj->pObject, ulCapID, kNkMAIDDataType_UnsignedPtr, (NKPARAM)&ulvalue, NULL, NULL, &result);
     *pulValue = ulvalue;
     return result;
-   
-
 }
 
 

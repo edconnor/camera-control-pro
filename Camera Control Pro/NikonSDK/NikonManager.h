@@ -39,6 +39,7 @@ public:
     bool    sourceCommandLoop (LPRefObj pRefMod);
 
     void    async           (void);
+    double  asyncRate       ();
     void    getCap          (ULONG ulParam, ULONG ulDataType, NKPARAM pData);
     int     getCapUnsigned  (ULONG ulCapID, ULONG* ulValue);
     BYTE    getCapBool      (ULONG ulCapID);
@@ -50,6 +51,7 @@ public:
     bool    getCapInfo      (LPNkMAIDCapInfo ppCapArray, int count);
     bool    getCapArray     (LPNkMAIDEnum pStEnum, int capId);
     char*   getEnumString   (int capId, int itemId);
+    int     getSrcId        () { return m_ulSrcID;}
     
     bool    setCapBool      (ULONG ulCapID, bool bFlag);
     bool    setCapUnsigned  (ULONG ulCapID, ULONG ulValue);
@@ -58,6 +60,7 @@ public:
     bool    setCapRange     (ULONG ulCapID, double fValue);
     void    setRefSrc       (LPRefObj pRefSrc ) {  m_pRefSrc = pRefSrc; }
     bool    canSet          (int capId);
+    bool    cameraConnected () { return  m_cameraConnected; }
   
     LPRefObj refObj         ();
     
@@ -68,6 +71,7 @@ private:
     ULONG       m_ulModID = 0;
     ULONG       m_ulSrcID = 0;
     bool        m_asyncPaused = true;
+    bool        m_cameraConnected = false;
 };
 
 class AsyncManager

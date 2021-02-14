@@ -16,7 +16,7 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         tableView.delegate = self
         tableView.dataSource = self
         tableView.target = self
@@ -26,6 +26,8 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
         
         detailViewController = (splitViewController.splitViewItems[1].viewController as! DetailViewController)
         detailViewController.modelData = modelData
+        
+      
     }
    
     override var representedObject: Any? {
@@ -35,17 +37,29 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return modelData.capInfoPages.count
+        if nikonManager.cameraConnected() {
+            return modelData.capInfoPages.count
+        } else {
+            return 1
+        }
     }
   
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var image: NSImage?
         var text: String = ""
         var cellIdentifier: String = ""
+        
+        let capInfoPage:CapInfoPage
+        
+        if nikonManager.cameraConnected() {
+            capInfoPage = modelData.capInfoPages[row]
+        } else {
+            capInfoPage = modelData.modInfoPage
+        }
  
         if tableColumn == tableView.tableColumns[0] {
-            image =  NSImage(systemSymbolName: modelData.capInfoPages[row].image, accessibilityDescription: nil)!
-            text = modelData.capInfoPages [row].name
+            image =  NSImage(systemSymbolName: capInfoPage.image, accessibilityDescription: nil)!
+            text = capInfoPage.name
             cellIdentifier = "NameCellID"
         }
         
@@ -62,7 +76,6 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
     func tableViewSelectionDidChange(_ notification: Notification) {
         
         let selectedRow = tableView.selectedRow
-        print("selectedRow \(selectedRow)")
        
         if selectedRow != -1 {
             detailViewController.createGridView(pageId: selectedRow)
