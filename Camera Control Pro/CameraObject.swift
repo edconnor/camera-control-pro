@@ -27,6 +27,7 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
     @IBOutlet var previewVolume: NSNumber!
     
     var detailViewController: DetailViewController!
+    var masterViewController: MasterViewController!
     
     // MARK: Recording Controls
     var session = AVCaptureSession()
@@ -41,7 +42,7 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
     
     var caps: Dictionary = [eNkMAIDCapability: NkMAIDCapInfoObj]()
     
-    var audioLevelTimer = Timer();
+   
     @objc dynamic var audioLevelDbLeft:  Float = 0.0
     @objc dynamic var audioLevelDbRight: Float = 0.0
    
@@ -55,7 +56,9 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
     
     public var columnsSpacing: CGFloat = 100.0
     
-    var timer: Timer!
+    var timerAsync: Timer!
+    var timerAudioLevel = Timer();
+    var timerAsyncModule = Timer();
     
     override init()
     {
@@ -104,7 +107,8 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
     {
         super.awakeFromNib()
 
-        audioLevelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioLevels), userInfo: nil, repeats: true)
+        timerAudioLevel = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateAudioLevels), userInfo: nil, repeats: true)
+        RunLoop.current.add(timerAudioLevel, forMode: .common)
         
         // Create primary LiveView capture layer
         var previewViewLayer = previewView.layer
@@ -146,8 +150,11 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         let context = ["Nikon 6 ZII": "@Async"]
         
         let ayncRate = nikonManager.asyncRate();
-        timer = Timer(timeInterval: ayncRate, target: self, selector: #selector(fireAsyncTimer), userInfo: context, repeats: true)
-        RunLoop.current.add(timer, forMode: .common)
+        timerAsync = Timer(timeInterval: ayncRate, target: self, selector: #selector(fireAsyncTimer), userInfo: context, repeats: true)
+        RunLoop.current.add(timerAsync, forMode: .common)
+        
+        timerAsyncModule = Timer(timeInterval: 2.0, target: self, selector: #selector(fireAsyncModuleTimer), userInfo: context, repeats: true)
+        //RunLoop.current.add(timerAsyncModule, forMode: .common)
     }
 
     @IBAction func setVolume (_ volume: NSObject)
@@ -225,11 +232,39 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
         nikonManager.async()
     }
     
+    @objc func fireAsyncModuleTimer(timer: Timer) {
+        nikonManager.asyncModule()
+    }
+    
     @objc func callbackEvent(capId: Int, objectType: Int, eventType: Int)
     {
-        if detailViewController != nil {
-            detailViewController.updateCap(capId: capId)
+       
+        
+        let maidObjectType = eNkMAIDObjectType(rawValue: objectType)
+        let maidEventType = eNkMAIDEvent(rawValue: eventType)
+
+        switch (maidObjectType)
+        {
+            case .kNkMAIDObjectType_Source:
+                if detailViewController != nil {
+                    detailViewController.updateCap(capId: capId)
+                }
+                break
+                
+            case .kNkMAIDObjectType_Module:
+                if maidEventType == eNkMAIDEvent.kNkMAIDEvent_RemoveChild {
+                    
+                    detailViewController.capViews.removeAll()
+                    detailViewController.gridViews.removeAll()
+                    masterViewController.tableView.reloadData()
+                    let indexset = IndexSet(arrayLiteral: 0)
+                    masterViewController.tableView.selectRowIndexes(indexset, byExtendingSelection: false)
+                }
+                break
+            default:
+                break;
         }
+      
     }
     
     func setSelectedVideoDevice(selectedVideoDevice: AVCaptureDevice )
@@ -249,13 +284,12 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
             //let desc =  videoDeviceFormat.formatDescription
             let mediaType = videoDeviceFormat.formatDescription.mediaType
 
-            switch (mediaType)
-            {
-            case .video:
-                currentVideoDevice = selectedVideoDevice
-                break
-            default:
-                break;
+            switch (mediaType) {
+                case .video:
+                    currentVideoDevice = selectedVideoDevice
+                    break
+                default:
+                    break;
             }
             
             session.addInput(videoDeviceInput)
@@ -290,14 +324,13 @@ class CameraObject: NSObject, AVCaptureFileOutputDelegate, AVCaptureFileOutputRe
             let mediaType = audioDeviceFormat.formatDescription.mediaType
             
             session.addInput(audioDeviceInput)
-            switch (mediaType)
-            {
-            case .audio:
-                currentAudioDevice = selectedAudioDevice
-               // let formatName = CMFormatDescriptionGetExtension(audioDeviceFormat.formatDescription, extensionKey: kCMFormatDescriptionExtension_FormatName)
-                break
-            default:
-                break;
+            switch (mediaType) {
+                case .audio:
+                    currentAudioDevice = selectedAudioDevice
+                   // let formatName = CMFormatDescriptionGetExtension(audioDeviceFormat.formatDescription, extensionKey: kCMFormatDescriptionExtension_FormatName)
+                    break
+                default:
+                    break;
             }
         } catch  {
            

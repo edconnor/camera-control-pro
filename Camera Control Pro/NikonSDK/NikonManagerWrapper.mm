@@ -130,6 +130,10 @@ static class NikonManager *nikonManager = nil;
     nikonManager->async();
 }
 
+- (void)asyncModule
+{
+    nikonManager->asyncModule();
+}
 
 - (double)  asyncRate
 {

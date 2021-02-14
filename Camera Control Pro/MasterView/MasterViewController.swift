@@ -27,7 +27,7 @@ class MasterViewController: NSViewController, NSTableViewDelegate, NSTableViewDa
         detailViewController = (splitViewController.splitViewItems[1].viewController as! DetailViewController)
         detailViewController.modelData = modelData
         
-      
+        nikonManager.cameraObject.masterViewController = self
     }
    
     override var representedObject: Any? {

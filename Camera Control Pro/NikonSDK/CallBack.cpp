@@ -36,10 +36,14 @@ void CALLPASCAL CALLBACK ModEventProc( NKREF refProc, ULONG ulEvent, NKPARAM dat
             if ( bRet == FALSE ) return;
             
             NikonManager::getInstance()->setRefSrc(pRefChild);
+            
+            NikonCallback::instance->callbackEvent((int)data, kNkMAIDObjectType_Module, kNkMAIDEvent_AddChild);
             break;
         case kNkMAIDEvent_RemoveChild:
-           // bRet = RemoveChild( pRefParent, (SLONG)data );  // TODO ejc - WTF!!!
-           // if ( bRet == FALSE ) return;
+            bRet = RemoveChild( pRefParent, (SLONG)data );  // TODO ejc - WTF!!!
+            if ( bRet == FALSE ) return;
+            NikonManager::getInstance()->setCameraConnected(false);
+            NikonCallback::instance->callbackEvent((int)data, kNkMAIDObjectType_Module, kNkMAIDEvent_RemoveChild);
             bRet = TRUE;
             break;
         case kNkMAIDEvent_WarmingUp:
@@ -61,11 +65,14 @@ void CALLPASCAL CALLBACK ModEventProc( NKREF refProc, ULONG ulEvent, NKPARAM dat
             bRet = EnumCapabilities( pRefParent->pObject, &(pRefParent->ulCapCount), &(pRefParent->pCapArray), NULL, NULL );
             if ( bRet == FALSE ) return;
             // ToDo: Execute a process when the property of a capability was changed.
+            NikonCallback::instance->callbackEvent((int)data, kNkMAIDObjectType_Module, ulEvent);
             break;
         case kNkMAIDEvent_CapChangeValueOnly:
             // ToDo: Execute a process when the value of a capability was changed.
             printf( "ModEventProc: The value of Capability(CapID=0x%X) was changed.\n", (ULONG)data );
+            NikonCallback::instance->callbackEvent((int)data, kNkMAIDObjectType_Module, kNkMAIDEvent_CapChangeValueOnly);
             break;
+            
         case kNkMAIDEvent_OrphanedChildren:
             // ToDo: Close children(Source Objects).
             break;

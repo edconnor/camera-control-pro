@@ -146,6 +146,12 @@ void NikonManager::async()
         bRet = Command_Async(refObj()->pObject );
 }
 
+void NikonManager::asyncModule()
+{
+    Command_Async(m_pRefMod->pObject );
+}
+
+
 double NikonManager::asyncRate()
 {
     AsyncManager amgr(this);
@@ -314,7 +320,7 @@ bool NikonManager::sourceCommandLoop( LPRefObj m_pRefMod )
 
 LPRefObj NikonManager::refObj()
 {
-    return m_ulSrcID == 0 ? m_pRefMod: m_pRefSrc;
+    return m_cameraConnected ? m_pRefSrc : m_pRefMod ;
 }
 
 AsyncManager::AsyncManager(NikonManager *mgr)

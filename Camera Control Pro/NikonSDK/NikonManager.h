@@ -39,7 +39,9 @@ public:
     bool    sourceCommandLoop (LPRefObj pRefMod);
 
     void    async           (void);
+    void    asyncModule     (void);
     double  asyncRate       ();
+    
     void    getCap          (ULONG ulParam, ULONG ulDataType, NKPARAM pData);
     int     getCapUnsigned  (ULONG ulCapID, ULONG* ulValue);
     BYTE    getCapBool      (ULONG ulCapID);
@@ -60,7 +62,9 @@ public:
     bool    setCapRange     (ULONG ulCapID, double fValue);
     void    setRefSrc       (LPRefObj pRefSrc ) {  m_pRefSrc = pRefSrc; }
     bool    canSet          (int capId);
+    
     bool    cameraConnected () { return  m_cameraConnected; }
+    void    setCameraConnected (bool connected) { m_cameraConnected = connected; }
   
     LPRefObj refObj         ();
     

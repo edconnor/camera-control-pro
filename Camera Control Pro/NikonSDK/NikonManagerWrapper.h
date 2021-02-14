@@ -49,6 +49,10 @@
 - (void)    async;
 - (double)  asyncRate;
 
+- (void)    asyncModule;
+
+
+
 - (void) resetInstance;
 
 @end
